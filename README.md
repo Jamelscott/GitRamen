@@ -67,7 +67,7 @@ app.get('/', (req, res)=>{
 
 I chose to use [Figma](https://www.figma.com/) to create my wireframes. Please see the link below for a flow chart and/or the screenshots of that flow chart.
 
-**[link to figma doc](https://www.figma.com/file/LrwZ9c6aqCjKA996gKSi7b/jamel?node-id=0%3A1)**
+[Click here to see my flow chart on figma](https://www.figma.com/file/LrwZ9c6aqCjKA996gKSi7b/jamel?node-id=0%3A1)
 
 ### screenshots from figma
 

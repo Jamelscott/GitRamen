@@ -41,23 +41,23 @@ app.get('/', (req, res)=>{
 - phone number
 
 
-![yelp api data](./YELP-API-DATA.png)
+[yelp api data](YELP-API-DATA.png)
 
 
 ## Entity Relationship Diagram
 
-![ERD with Draw.io](./P2-ERDS.png)
+[ERD with Draw.io](P2-ERDS.png)
 
 ## Wireframes
 
 
-![link to figma doc](https://www.figma.com/file/LrwZ9c6aqCjKA996gKSi7b/jamel?node-id=0%3A1)
+[link to figma doc](https://www.figma.com/file/LrwZ9c6aqCjKA996gKSi7b/jamel?node-id=0%3A1)
 
 ### screenshots from figma
 
 
 
-![Figma Sign-up page](./p2-signup.png)
-![Figma Sign-in page](./p2-signin.png)
-![Figma Detailed Restaurant page](./p2-detailrestaurant.png)
-![Figma All Restaurants page](./p2-allrestaurants.png)
+[Figma Sign-up page](p2-signup.png)
+[Figma Sign-in page](p2-signin.png)
+[Figma Detailed Restaurant page](p2-detailrestaurant.png)
+[Figma All Restaurants page](p2-allrestaurants.png)

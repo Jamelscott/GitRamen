@@ -41,12 +41,12 @@ app.get('/', (req, res)=>{
 - phone number
 
 
-[yelp api data](https://github.com/Jamelscott/P2-Ramen/blob/main/YELP-API-DATA.PNG?raw=true)
+![yelp api data](https://github.com/Jamelscott/P2-Ramen/blob/main/YELP-API-DATA.PNG?raw=true)
 
 
 ## Entity Relationship Diagram
 
-[ERD with Draw.io](https://github.com/Jamelscott/P2-Ramen/blob/main/P2-ERDS.PNG?raw=true)
+![ERD with Draw.io](https://github.com/Jamelscott/P2-Ramen/blob/main/P2-ERDS.PNG?raw=true)
 
 
 
@@ -59,9 +59,9 @@ app.get('/', (req, res)=>{
 
 
 
-[Figma Sign-up page](https://github.com/Jamelscott/P2-Ramen/blob/main/p2-signup.PNG?raw=true)
-[Figma Sign-in page](https://github.com/Jamelscott/P2-Ramen/blob/main/p2-signin.PNG?raw=true)
-[Figma Detailed Restaurant page](https://github.com/Jamelscott/P2-Ramen/blob/main/p2-detailrestaurant.PNG?raw=true)
-[Figma All Restaurants page](https://github.com/Jamelscott/P2-Ramen/blob/main/p2-allrestaurants.PNG?raw=true)
+![Figma Sign-up page](https://github.com/Jamelscott/P2-Ramen/blob/main/p2-signup.PNG?raw=true)
+![Figma Sign-in page](https://github.com/Jamelscott/P2-Ramen/blob/main/p2-signin.PNG?raw=true)
+![Figma Detailed Restaurant page](https://github.com/Jamelscott/P2-Ramen/blob/main/p2-detailrestaurant.PNG?raw=true)
+![Figma All Restaurants page](https://github.com/Jamelscott/P2-Ramen/blob/main/p2-allrestaurants.PNG?raw=true)
 
 

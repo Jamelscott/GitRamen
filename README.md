@@ -62,4 +62,4 @@ app.get('/', (req, res)=>{
 [Figma Detailed Restaurant page](p2-detailrestaurant.png)
 [Figma All Restaurants page](p2-allrestaurants.png)
 
-![test](https://github.com/jamelscott/P2Ramen/blob/main/p2-signup.png?raw=true)
+![test](https://github.com/jamelscott/P2-Ramen/blob/main/p2-signup.png?raw=true)

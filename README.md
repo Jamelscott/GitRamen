@@ -48,7 +48,16 @@ app.get('/', (req, res)=>{
 
 ![and RD](./P2-ERD.png)
 
+## RESTful Routing Chart
 
+| Method | Path | Purpose |
+| ------ | -------------- | -------------------------------- |
+| GET | `/` | home page that allows user to sign in or sends user to create an account |
+| GET | `/signup` | sign up page to allow user access to the site |
+| POST | `/` | creates a new user, then redirects back to `GET /` to login |
+| GET | `/restaurant/index` | page that shows all restaurants in the database |
+| GET | `/restaurant/show` | page that shows a specific restaurant where users can review/rate |
+| POST | `/restaurant/` | creates a new article, then redirects back to `GET /` |
 
 ## Wireframes
 
@@ -63,5 +72,18 @@ app.get('/', (req, res)=>{
 ![Figma Sign-in page](https://github.com/Jamelscott/P2-Ramen/blob/main/p2-signin.PNG?raw=true)
 ![Figma Detailed Restaurant page](https://github.com/Jamelscott/P2-Ramen/blob/main/p2-detailrestaurant.PNG?raw=true)
 ![Figma All Restaurants page](https://github.com/Jamelscott/P2-Ramen/blob/main/p2-allrestaurants.PNG?raw=true)
+
+
+## User Stories
+
+* As a user, I want to sign up or create an account
+* as a user, I want to see a list of the highest rated Ramen restaurants in the city
+* as a user, I want to provide a personally rating for these restaurants
+* As a user, I want to provide my own feedback and share experiences I've had at these restaurants
+* As a user, I want to be able to log out to avoid any other people posting on my computer on my behalf.
+
+## MVP goals
+
+* Build a Sequelize model/SQL database of users that can be access 
 
 

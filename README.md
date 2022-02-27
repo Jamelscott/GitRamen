@@ -46,7 +46,7 @@ app.get('/', (req, res)=>{
 
 ## Entity Relationship Diagram
 
-![ERD with Draw.io](./P2-ERD.PNG)
+![ERD with Draw.io](P2-ERD.PNG)
 
 
 

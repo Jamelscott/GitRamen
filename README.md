@@ -80,14 +80,22 @@ app.get('/', (req, res)=>{
 
 ## User Stories
 
-* As a user, I want to sign up or create an account
-* as a user, I want to see a list of the highest rated Ramen restaurants in the city
-* as a user, I want to provide a personally rating for these restaurants
-* As a user, I want to provide my own feedback and share experiences I've had at these restaurants
+* As a user, I want to sign up or create an account.
+* as a user, I want to see a list of the highest rated Ramen restaurants in the city.
+* as a user, I want to provide a personally rating for these restaurants.
+* As a user, I want to provide my own feedback and share experiences I've had at these restaurants.
 * As a user, I want to be able to log out to avoid any other people posting on my computer on my behalf.
 
 ## MVP goals
 
-* Build a Sequelize model/SQL database of users that can be access 
+* Build a Sequelize model/SQL database of users that can be accessed to create and log-in users.
+* Generate between 6-20 ramen of the top rated ramen restaurants from YELP FUSION api and display them in a card-like format.
+* allow users to select a specific restaurant and display detailed information about that restaurant such as address, phone number, total reviews, average rating and pricing.
+* allow users to create, update and/or delete any number of reviews that they've posted.
 
+## Stretch goals
+* add styling that includes drop shadows, hover, images/emojis for star ratings and error effects.
+* allow user rating to be displayed as a star emoji instead of an integer.
+* allow users to upvote or "like" restaurants on the index page and have those restaurants displayed in chronological order based on likes.
+* allow users to input their own restaurants and allow the same functionality to include reviews/rating with those restaurants OR build in a form that allows logged in users to submit a request for a restaurant to be included in the index.
 

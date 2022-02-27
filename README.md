@@ -54,10 +54,14 @@ app.get('/', (req, res)=>{
 | ------ | -------------- | -------------------------------- |
 | GET | `/` | home page that allows user to sign in or sends user to create an account |
 | GET | `/signup` | sign up page to allow user access to the site |
-| POST | `/` | creates a new user, then redirects back to `GET /` to login |
+| POST | `/` | user signs in and gets redirected to `GET /restaurants/index`  |
+| POST | `/signup` | creates a new user, then redirects back to `GET /` to login |
 | GET | `/restaurant/index` | page that shows all restaurants in the database |
-| GET | `/restaurant/show` | page that shows a specific restaurant where users can review/rate |
-| POST | `/restaurant/` | creates a new article, then redirects back to `GET /` |
+| GET | `/restaurant/logout` | allows the user to log out, then redirects back to `GET /` |
+| GET | `/restaurant/:id` | page that shows a specific restaurant where users can review/rate |
+| POST | `/restaurant/:id/review` | creates a review, the user always stays on `GET /restaurant/"id` |
+| PUT | `/restaurant/:id/review` | user can update one of their reviews, the user always stays on `GET /restaurant/"id` |
+| DELETE | `/restaurant/:id/review` | user can delete one of their reviews, the user always stays on `GET /restaurant/"id` |
 
 ## Wireframes
 

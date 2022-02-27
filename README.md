@@ -41,25 +41,27 @@ app.get('/', (req, res)=>{
 - phone number
 
 
-[yelp api data](YELP-API-DATA.png)
+[yelp api data](https://github.com/Jamelscott/P2-Ramen/blob/main/YELP-API-DATA.PNG?raw=true)
 
 
 ## Entity Relationship Diagram
 
-[ERD with Draw.io](P2-ERDS.png)
+[ERD with Draw.io](https://github.com/Jamelscott/P2-Ramen/blob/main/P2-ERDS.PNG?raw=true)
+
+
 
 ## Wireframes
 
 
-[link to figma doc](https://www.figma.com/file/LrwZ9c6aqCjKA996gKSi7b/jamel?node-id=0%3A1)
+**[link to figma doc](https://www.figma.com/file/LrwZ9c6aqCjKA996gKSi7b/jamel?node-id=0%3A1)**
 
 ### screenshots from figma
 
 
 
-[Figma Sign-up page](p2-signup.png)
-[Figma Sign-in page](p2-signin.png)
-[Figma Detailed Restaurant page](p2-detailrestaurant.png)
-[Figma All Restaurants page](p2-allrestaurants.png)
+[Figma Sign-up page](https://github.com/Jamelscott/P2-Ramen/blob/main/p2-signup.PNG?raw=true)
+[Figma Sign-in page](https://github.com/Jamelscott/P2-Ramen/blob/main/p2-signin.PNG?raw=true)
+[Figma Detailed Restaurant page](https://github.com/Jamelscott/P2-Ramen/blob/main/p2-detailrestaurant.PNG?raw=true)
+[Figma All Restaurants page](https://github.com/Jamelscott/P2-Ramen/blob/main/p2-allrestaurants.PNG?raw=true)
 
-![test](https://github.com/Jamelscott/P2-Ramen/blob/main/p2-signup.PNG?raw=true)
+

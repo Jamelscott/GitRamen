@@ -26,6 +26,6 @@ I plan to use YELPs API to give me access to the top rated ramen locations in th
 
 ## Entity Relationship Diagram
 
-![ERD with Draw.io](P2-ERD.png)
+![ERD with Draw.io](P2-ERDS.png)
 
 

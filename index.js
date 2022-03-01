@@ -55,24 +55,16 @@ app.post('/login', async (req, res)=>{
         return res.render('index', { error: 'Invalid username/password' });
 
     } else {
-        // console.log("correct password")
         const encryptedUserId = cryptoJS.AES.encrypt(user.id.toString(), process.env.SECRET)
         const encryptedUserIdString = encryptedUserId.toString()
         res.cookie('userId', encryptedUserIdString)
-        
-        
-        const url = `https://api.yelp.com/v3/businesses/search?location=vancouver&categories=ramen`
-        const header = {headers: {Authorization: 'Bearer ' + process.env.YELP_ACCESS}}
-        axios.get(url, header)
-        .then(function (response) {
-            // handle success
-            let restaurants = response.data.businesses
 
-            res.render('restaurants', {restaurant: restaurants})
-            // res.send(restaurants)
-        })
+        res.redirect('/restaurants')
+
     }
     })
+
+
 app.get('/logout', (req, res)=>{
 
     res.clearCookie('userId')

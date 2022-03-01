@@ -2,11 +2,11 @@
 
 <ul>
 <% restaurant.forEach(element => { %>
-    <li><%=element.name%></li>
+    <li><a href="/restaurants/<%=element.name%>"><%=element.name%></a></li>
     <ul>
         <li>Rating: <%=element.rating%></li>
         <li>Review count: <%=element.review_count%></li>
-        <li><img src="<%=element.image_url%>" alt=""></li>
+        <li><img width="400px" height="400px"src="<%=element.image_url%>" alt=""></li>
     </ul>
 
 <% }) %>

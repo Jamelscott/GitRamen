@@ -7,13 +7,17 @@
     <title>Project 2</title>
 </head>
 <body>
+    <%if(!user){%>
     <h1>Welcome to P2</h1>
+<%} else {%>
+    <h1>Welcome <%=user.username%></h1>
+<%}%>
     <nav>
         <ul>
             <%if(user){%>
                 <li><a href="/logout">logout</a></li>
+                <li><a href="/restaurants/">Home</a></li>
                 <%}else{%>
-                    <li><a href="/">Home</a></li>
                     <%}%>
         </ul>
     <%- body%>

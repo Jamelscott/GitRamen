@@ -1,14 +1,12 @@
 <h1>RESTAURANT INDEX</h1>
 
 <ul>
-<% restaurant.forEach(element => { %>
-    <li><a href="/restaurants/<%=element.name%>"><%=element.name%></a></li>
-    <ul>
-        <li>Rating: <%=element.rating%></li>
-        <li>Review count: <%=element.review_count%></li>
-        <li><img width="400px" height="400px"src="<%=element.image_url%>" alt=""></li>
-    </ul>
 
-<% }) %>
-
+<% for( let i = 0; i < restaurant.length; i++ ) { %>
+    <li>Name: <a href="/restaurants/<%=i%>"><%=restaurant[i].name%></a></li> 
+    <li>Rating: <%=restaurant[i].rating%></li> 
+    <li>Review count: <%=restaurant[i].review_count%></li> 
+    <li><img width="400px" height="400px"src="<%=restaurant[i].image_url%>" alt=""></li> 
+<% } %>
 </ul>
+

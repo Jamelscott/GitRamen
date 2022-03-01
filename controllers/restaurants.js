@@ -26,9 +26,16 @@ router.get('/', (req, res)=>{
 
 
 router.get('/:id', (req, res)=>{
-
-    console.log(req.params.id)
-    res.render('restaurants/show.ejs', {name:req.params.id})
+     
+    const url = `https://api.yelp.com/v3/businesses/search?location=vancouver&categories=ramen`
+    const header = {headers: {Authorization: 'Bearer ' + process.env.YELP_ACCESS}}
+    axios.get(url, header)
+    .then(function (response) {
+        // handle success
+        let restaurants = response.data.businesses
+        
+        res.render('restaurants/show.ejs', {i:req.params.index,restaurant:restaurants,})
+    })
 }),
 
 

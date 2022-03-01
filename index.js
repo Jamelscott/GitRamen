@@ -3,10 +3,13 @@ const express = require('express')
 var expressLayouts = require('express-ejs-layouts');
 require('dotenv').config() // allows uses to acces env vars
 const app = express();
+let ejs = require('ejs');
 const cookieParser = require('cookie-parser')
 const cryptoJS = require('crypto-js');
 const db = require('./models/index.js');
-const port = 3001
+const { send } = require('express/lib/response');
+const bcrypt = require('bcrypt');
+const port = 8000
 
 // Middleware
 app.set('view engine', 'ejs');
@@ -31,20 +34,40 @@ app.use(async (req, res, next)=>{
 })
 
 // Controllers
-app.use('/users', require('./controllers/users.js'))
+app.use('/restaurants', require('./controllers/restaurants.js'))
+app.use('/signup', require('./controllers/signup.js'))
 
 
-// Routes
+// // Routes
+// Landing
 app.get('/', (req, res)=>{
 
-    res.render('index.ejs')
+    res.render('index', {error:null})
+})
+//Login User
+app.post('/login', async (req, res)=>{
+
+    const user = await db.user.findOne({where:{username: req.body.username}})
+    if(!user){
+        return res.render('index', {error:"Invalid username/password"})
+    } else if (!bcrypt.compareSync(req.body.password, user.password)){
+        return res.render('index', { error: 'Invalid username/password' });
+
+    } else {
+        // console.log("correct password")
+        const encryptedUserId = cryptoJS.AES.encrypt(user.id.toString(), process.env.SECRET)
+        const encryptedUserIdString = encryptedUserId.toString()
+        res.cookie('userId', encryptedUserIdString)
+        res.render('restaurants/index')
+
+    }
+    
 
 })
 
-
-
+// Port activation
 app.listen(port, ()=>{
 
-    console.log(`🎙 you're now listening to PORT ${port} 🎙`)
+    console.log(`🎙 P2 BABY! You're now listening to PORT ${port}🎙`)
 })
 

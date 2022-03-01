@@ -1,9 +1,13 @@
 <h2>Create a new User</h2>
 
-<form action="/users" method="POST">
+<form action="/signup" method="POST">
+    <label for="username">Enter Username:</label>
+<input type="text" name="username" id="username">
     <label for="email">Enter email:</label>
 <input type="text" name="email" id="email">
     <label for="password">Enter Password:</label>
 <input type="password" name="password" id="password">
 <input type="submit">
+<p style="color:red"><em><%=error%></em></p>
+<p>Already a member? <a href="/">Sign In</a></p>
 </form>

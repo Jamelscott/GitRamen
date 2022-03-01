@@ -3,6 +3,10 @@
 <ul>
 <% restaurant.forEach(element => { %>
     <li><%=element.name%></li>
+    <ul>
+        <li>Rating: <%=element.rating%></li>
+        <li>Review count: <%=element.review_count%></li>
+    </ul>
 
 <% }) %>
 

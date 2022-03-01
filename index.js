@@ -67,12 +67,11 @@ app.post('/login', async (req, res)=>{
         .then(function (response) {
             // handle success
             let restaurants = response.data.businesses
-            console.log(restaurants)
+
             res.render('restaurants', {restaurant: restaurants})
             // res.send(restaurants)
         })
-        }
-    
+    }
     })
 app.get('/logout', (req, res)=>{
 

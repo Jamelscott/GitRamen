@@ -9,11 +9,12 @@ const cryptoJS = require('crypto-js');
 const db = require('./models/index.js');
 const { send } = require('express/lib/response');
 const bcrypt = require('bcrypt');
+const axios = require('axios')
 const port = 8000
 
 // Middleware
-app.set('view engine', 'ejs');
 app.use(expressLayouts); // lets know we want ot use laoyouts
+app.set('view engine', 'ejs');
 app.use(cookieParser()) // gives access to req.cookies
 app.use(express.urlencoded({ extended: false })); // body parser middleware
 
@@ -58,10 +59,25 @@ app.post('/login', async (req, res)=>{
         const encryptedUserId = cryptoJS.AES.encrypt(user.id.toString(), process.env.SECRET)
         const encryptedUserIdString = encryptedUserId.toString()
         res.cookie('userId', encryptedUserIdString)
-        res.render('restaurants/index')
-
-    }
+        
+        
+        const url = `https://api.yelp.com/v3/businesses/search?location=vancouver&categories=ramen`
+        const header = {headers: {Authorization: 'Bearer ' + process.env.YELP_ACCESS}}
+        axios.get(url, header)
+        .then(function (response) {
+            // handle success
+            let restaurants = response.data.businesses
+            console.log(restaurants)
+            res.render('restaurants', {restaurant: restaurants})
+            // res.send(restaurants)
+        })
+        }
     
+    })
+app.get('/logout', (req, res)=>{
+
+    res.clearCookie('userId')
+    res.redirect('/')
 
 })
 

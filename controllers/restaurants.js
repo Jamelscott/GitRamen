@@ -4,16 +4,16 @@ const db = require('../models')
 const bcrypt = require('bcrypt')
 const cryptojs = require('crypto-js');
 const { append } = require('express/lib/response');
+const axios = require('axios')
 require('dotenv').config()
 
 
-// app.post('/', (req, res)=>{
+router.get('/', (req, res)=>{
 
-//     db.gitramen.create({
-//         username: req.body.username,
-//         email: req.body.email,
-//         password: req.body.password
-//     })
+    
+})
 
-// })
+
+
+
 module.exports = router;

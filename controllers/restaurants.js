@@ -34,7 +34,7 @@ router.get('/:id', (req, res)=>{
         // handle success
         let restaurants = response.data.businesses
         
-        res.render('restaurants/show.ejs', {i:req.params.index,restaurant:restaurants,})
+        res.render('restaurants/show.ejs', {i:req.params.id,restaurant:restaurants,})
     })
 }),
 

@@ -25,11 +25,17 @@
   <input type="submit" />
 </form>
 <ul>
-<% reviews.forEach(element => { %>
-  <li>
-    Username: <%=element.userId%>
-    review: <%=element.comment%>
-    rating: <%=element.rating%>/5
+<% reviews.forEach((element, index) => { %>
+  <li> 
+    Review: <%=index + 1%>
+    <ul>
+      <li> Username: <%=element.userId%></li>
+       <li>review: <%=element.comment%></li>
+      <li>rating: <%=element.rating%>/5</li>
+      <%if(element.userId == user.id){%>
+      <li><input type="submit" id="delete" name="delete" value="delete"><input type="submit" id="update" name="update" value="update"></li>
+      <%}%>
+  </ul>
   </li>
   <% }) %>
 </ul> 

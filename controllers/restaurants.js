@@ -36,13 +36,13 @@ router.get('/:id', (req, res)=>{
         // console.log(currentRestaurant)
         //create object of all reviews for single restaurant
             const restaurantAndReviews = await db.restaurant.findOne({
-                where: {name: currentRestaurant.name},
+                where: {id: req.params.id},
                 include: [db.review]
             })
 
-            console.log(restaurantAndReviews.dataValues)
-        
+
         res.render('restaurants/show.ejs', {restaurant:currentRestaurant,reviews:restaurantAndReviews.reviews})
+
     })
 })
 

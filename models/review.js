@@ -17,7 +17,7 @@ module.exports = (sequelize, DataTypes) => {
   }
   review.init({
     userId: DataTypes.INTEGER,
-    restaurantId: DataTypes.STRING,
+    restaurantId: DataTypes.INTEGER,
     comment: DataTypes.STRING,
     rating: DataTypes.INTEGER
   }, {

@@ -64,7 +64,7 @@ app.post('/login', async (req, res)=>{
     }
     })
 
-
+//Logout User
 app.get('/logout', (req, res)=>{
 
     res.clearCookie('userId')

@@ -25,37 +25,45 @@ router.get('/', (req, res)=>{
 
 // Route to Single Restaurant page
 router.get('/:id', (req, res)=>{
+
     const url = `https://api.yelp.com/v3/businesses/search?location=vancouver&categories=ramen`
     const header = {headers: {Authorization: 'Bearer ' + process.env.YELP_ACCESS}}
     axios.get(url, header)
-    .then(function (response) {
+    .then(async function (response) {
         // handle success
-        let restaurants = response.data.businesses
-        res.render('restaurants/show.ejs', {i:req.params.id,restaurant:restaurants,})
+        // create variables
+        let currentRestaurant = response.data.businesses[req.params.id]
+        // console.log(currentRestaurant)
+        //create object of all reviews for single restaurant
+            const restaurantAndReviews = await db.restaurant.findOne({
+                where: {name: currentRestaurant.name},
+                include: [db.review]
+            })
+
+            console.log(restaurantAndReviews.dataValues)
+        
+        res.render('restaurants/show.ejs', {restaurant:currentRestaurant,reviews:restaurantAndReviews.reviews})
     })
-}),
+})
 
 // route to post a review
 
 router.post('/review', async (req, res)=>{
-console.log(user)
-    // const [restaurant, create] = await db.restaurant.findOrCreate({
-    //     where: {name: req.body.restaurant},
-    //     include: [db.review]
-    // })
-    // // console.log(restaurant)
-    // const newReview = await db.review.create({
-    //     comment: req.body.review,
-    //     rating: req.body.rating, 
-    //     include: [db.restaurant, db.user]
-    // })
-    // const user = await db.user.findOne({
-    //     where: {name: }
-    // })
-    // restaurant.addReview(newReview)
 
+    const decryptedId = cryptojs.AES.decrypt(req.cookies.userId, process.env.SECRET)
+    const decryptedIdString = decryptedId.toString(cryptojs.enc.Utf8)
+
+    const [restaurant, create] = await db.restaurant.findOrCreate({
+        where: {name: req.body.restaurant}
+    })
+    const newReview = await db.review.create({
+        comment: req.body.review,
+        rating: req.body.rating
+    })
+    restaurant.addReview(newReview)
+    res.locals.user.addReview(newReview)
+    // console.log(restaurant.reviews) // reviews for all of that restaurant
     
-
 
 })
 

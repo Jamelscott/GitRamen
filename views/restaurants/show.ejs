@@ -5,28 +5,37 @@
 />
 <script src="https://api.mapbox.com/mapbox-gl-js/v2.7.0/mapbox-gl.js"></script>
 <!-- generated data fields from API -->
-<h1>Name: <%= restaurant[i].name%></h1>
-<h1>Address: <%= restaurant[i].location.address1%></h1>
-<h1>City: <%= restaurant[i].location.city%></h1>
-<h1>Rating: <%= restaurant[i].rating%></h1>
-<h1>Price: <%= restaurant[i].price%></h1>
+<h1>Name: <%= restaurant.name%></h1>
+<h1>Address: <%= restaurant.location.address1%></h1>
+<h1>City: <%= restaurant.location.city%></h1>
+<h1>Rating: <%= restaurant.rating%></h1>
+<h1>Price: <%= restaurant.price%></h1>
 <h1><a href="#">Get directions here</a></h1>
 <h1>Image:</h1>
-<img width="500px" heigh="500px" src="<%= restaurant[i].image_url%>" alt="" />
-<!-- variables needed to provide script with EJS variables -->
-<% let latitude = restaurant[i].coordinates.latitude%>
-<% let longitude = restaurant[i].coordinates.longitude%>
+<img width="500px" heigh="500px" src="<%= restaurant.image_url%>" alt="" />
 <!-- form to submit a review -->
 <div id="map" style="width: 400px; height: 300px"></div>
 <form action="/restaurants/review" method="POST">
   <label for="restaurant"></label>
-  <input hidden type="text" name="restaurant" id="restaurant" value="<%=restaurant[i].name%>"/>
+  <input hidden type="text" name="restaurant" id="restaurant" value="<%=restaurant.name%>"/>
   <label for="review">Add a review: </label>
   <input type="text" name="review" id="review" />
   <label for="rating">Add a rating:</label>
   <input type="number" name="rating" id="rating" min="1" max="5"/>
   <input type="submit" />
 </form>
+<ul>
+<% reviews.forEach(element => { %>
+  <li>
+    Username: <%=element.userId%>
+    review: <%=element.comment%>
+    rating: <%=element.rating%>/5
+  </li>
+  <% }) %>
+</ul> 
+<!-- variables needed to provide script with EJS variables -->
+<% let latitude = restaurant.coordinates.latitude%>
+<% let longitude = restaurant.coordinates.longitude%>
 <!-- Javascript for Mapbox -->
 <script>
     let getlatitude = <%=latitude%>;

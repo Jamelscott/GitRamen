@@ -1,9 +1,10 @@
+<!-- Links to CSS and JS from Mapbox -->
 <link
   href="https://api.mapbox.com/mapbox-gl-js/v2.7.0/mapbox-gl.css"
   rel="stylesheet"
 />
 <script src="https://api.mapbox.com/mapbox-gl-js/v2.7.0/mapbox-gl.js"></script>
-
+<!-- generated data fields from API -->
 <h1>Name: <%= restaurant[i].name%></h1>
 <h1>Address: <%= restaurant[i].location.address1%></h1>
 <h1>City: <%= restaurant[i].location.city%></h1>
@@ -12,35 +13,31 @@
 <h1><a href="#">Get directions here</a></h1>
 <h1>Image:</h1>
 <img width="500px" heigh="500px" src="<%= restaurant[i].image_url%>" alt="" />
-
-<h4><%=console.log(restaurant[i].name)%></h4>
-
-<form action="" method="">
-  <label for="">Add a review: </label>
-  <input type="text" />
-  <label for="">Add a rating:</label>
-  <input type="number" name="" id="" min="1" max="5"/>
-  <input type="submit" />
-</form>
-
+<!-- variables needed to provide script with EJS variables -->
 <% let latitude = restaurant[i].coordinates.latitude%>
 <% let longitude = restaurant[i].coordinates.longitude%>
-
+<!-- form to submit a review -->
 <div id="map" style="width: 400px; height: 300px"></div>
+<form action="/restaurants/review" method="POST">
+  <label for="restaurant"></label>
+  <input hidden type="text" name="restaurant" id="restaurant" value="<%=restaurant[i].name%>"/>
+  <label for="review">Add a review: </label>
+  <input type="text" name="review" id="review" />
+  <label for="rating">Add a rating:</label>
+  <input type="number" name="rating" id="rating" min="1" max="5"/>
+  <input type="submit" />
+</form>
+<!-- Javascript for Mapbox -->
 <script>
-
     let getlatitude = <%=latitude%>;
-
     let getlongitude = <%=longitude%>;
-    // console.log(getlatitude, getlongitude)
-
   mapboxgl.accessToken =
     'pk.eyJ1IjoiamFtZWxzY290dCIsImEiOiJjbDAzZGN5ajExM3k5M2NvOTMycXJkM2l5In0.6Ym8zM55Xi5dAJFZqwJ55g';
   const map = new mapboxgl.Map({
     container: 'map', // container ID
     style: 'mapbox://styles/mapbox/streets-v11', // style URL
     center: [getlongitude, getlatitude], // starting position [lng, lat]
-    zoom: 12, // starting zoom
+    zoom: 13, // starting zoom
   });
   const marker1 = new mapboxgl.Marker()
 .setLngLat([getlongitude, getlatitude])

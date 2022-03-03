@@ -1,12 +1,13 @@
 <h1>RESTAURANT INDEX</h1>
 
 <ul>
-
-<% for( let i = 0; i < restaurant.length; i++ ) { %>
+<%restaurant.unshift({empty:null})%>
+<% for( let i = 1; i < restaurant.length; i++ ) { %>
     <li>Name: <a href="/restaurants/<%=i%>"><%=restaurant[i].name%></a></li> 
     <li>Rating: <%=restaurant[i].rating%></li> 
     <li>Review count: <%=restaurant[i].review_count%></li> 
     <li><img width="400px" height="400px"src="<%=restaurant[i].image_url%>" alt=""></li> 
+    <li hidden>i</li>
 <% } %>
 </ul>
 

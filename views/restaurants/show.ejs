@@ -15,56 +15,75 @@
 <img width="500px" heigh="500px" src="<%= restaurant.image_url%>" alt="" />
 <!-- form to submit a review -->
 <div id="map" style="width: 400px; height: 300px"></div>
-<form action="/restaurants/review" method="POST">
-  <label for="restaurant"></label>
-  <input hidden type="text" name="restaurant" id="restaurant" value="<%=restaurant.name%>"/>
-  <label for="review">Add a review: </label>
-  <input type="text" name="review" id="review" />
-  <label for="rating">Add a rating:</label>
-  <input type="number" name="rating" id="rating" min="1" max="5"/>
-  <input type="submit" />
-</form>
 
 <%if(reviews){%>
 <ul>
-<% reviews.forEach((element, index) => { %>
-  <li> 
+  <% reviews.forEach((element, index) => { %>
+  <li>
     Review: <%=index + 1%>
     <ul>
-      <li> Username: <%=element.userId%></li>
-       <li>review: <%=element.comment%></li>
+      <li>Username: <%=element.userId%></li>
+      <li>review: <%=element.comment%></li>
       <li>rating: <%=element.rating%>/5</li>
       <%if(element.userId == user.id){%>
-      <li><form action="/restaurants/resource?_method=DELETE" method="POST">
-            <input type="submit" id="delete" name="delete" value="delete">
-            <input hidden type="text" id="delete" name="id" value="<%=element.id%>">
-          </form>
-          <form action="/restaurants/resource?_method=PUT" method="POST">
-            <input type="submit" id="update" name="update" value="update">
-          </form>
+      <li>
+        <form action="/restaurants/resource?_method=DELETE" method="POST">
+          <input type="submit" id="delete" name="delete" value="delete" />
+          <input
+            hidden
+            type="text"
+            id="delete"
+            name="id"
+            value="<%=element.id%>"
+          />
+        </form>
+        <form action="/restaurants/resource?_method=PUT" method="POST">
+          <input type="submit" id="update" name="update" value="update" />
+        </form>
       </li>
       <%}%>
-  </ul>
+    </ul>
   </li>
-  <% }) %>
-</ul> 
+</ul>
+<% }) %>
 <%}%>
+
+<form action="/restaurants/review" method="POST">
+  <label for="restaurant"></label>
+  <input
+    hidden
+    type="text"
+    name="restaurant"
+    id="restaurant"
+    value="<%=restaurant.name%>"
+  />
+  <label for="review">Add a review: </label>
+  <input type="text" name="review" id="review" />
+  <label for="rating">Add a rating:</label>
+  <input type="number" name="rating" id="rating" min="1" max="5" />
+  <label for="id"></label>
+  <input hidden type="text" name="yelpIndex" value="<%=restaurant.id%>">
+  <label for="name"></label>
+  <input hidden type="text" name="name" value="<%=restaurant.name%>">
+  <input type="submit" />
+</form>
 <!-- variables needed to provide script with EJS variables -->
-<% let latitude = restaurant.coordinates.latitude%>
-<% let longitude = restaurant.coordinates.longitude%>
+<% let latitude = restaurant.coordinates.latitude%> <% let longitude =
+restaurant.coordinates.longitude%>
 <!-- Javascript for Mapbox -->
 <script>
-    let getlatitude = <%=latitude%>;
-    let getlongitude = <%=longitude%>;
-  mapboxgl.accessToken =
-    'pk.eyJ1IjoiamFtZWxzY290dCIsImEiOiJjbDAzZGN5ajExM3k5M2NvOTMycXJkM2l5In0.6Ym8zM55Xi5dAJFZqwJ55g';
-  const map = new mapboxgl.Map({
-    container: 'map', // container ID
-    style: 'mapbox://styles/mapbox/streets-v11', // style URL
-    center: [getlongitude, getlatitude], // starting position [lng, lat]
-    zoom: 13, // starting zoom
-  });
-  const marker1 = new mapboxgl.Marker()
-.setLngLat([getlongitude, getlatitude])
-.addTo(map);
+  const hi = document.getElementById
+      let getlatitude = <%=latitude%>;
+      let getlongitude = <%=longitude%>;
+    mapboxgl.accessToken =
+      'pk.eyJ1IjoiamFtZWxzY290dCIsImEiOiJjbDAzZGN5ajExM3k5M2NvOTMycXJkM2l5In0.6Ym8zM55Xi5dAJFZqwJ55g';
+    const map = new mapboxgl.Map({
+      container: 'map', // container ID
+      style: 'mapbox://styles/mapbox/streets-v11', // style URL
+      center: [getlongitude, getlatitude], // starting position [lng, lat]
+      zoom: 13, // starting zoom
+    });
+    const marker1 = new mapboxgl.Marker()
+  .setLngLat([getlongitude, getlatitude])
+  .addTo(map);
 </script>

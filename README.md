@@ -100,3 +100,22 @@ I chose to use [Figma](https://www.figma.com/) to create my wireframes. Please s
 * allow users to upvote or "like" restaurants on the index page and have those restaurants displayed in chronological order based on likes.
 * allow users to input their own restaurants and allow the same functionality to include reviews/rating with those restaurants OR build in a form that allows logged in users to submit a request for a restaurant to be included in the index.
 
+
+<!-- Restaurant -->
+models.restaurant.hasMany(models.review)
+<!-- reviews -->
+models.review.belongsTo(models.restaurant)
+models.review.belongsTo(models.user)
+<!-- users -->
+models.user.hasMany(models.review)
+
+<!-- config.json -->
+{
+  "development": {
+    "username": "root",
+    "password": "password",
+    "database": "gitramen",
+    "host": "127.0.0.1",
+    "dialect": "postgresql"
+  }
+}

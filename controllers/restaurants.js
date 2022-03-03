@@ -7,7 +7,8 @@ const cryptojs = require('crypto-js');
 const { append, redirect } = require('express/lib/response');
 const axios = require('axios');
 const { sequelize } = require('../models');
-var methodOverride = require('method-override')
+var methodOverride = require('method-override');
+const { user } = require('pg/lib/defaults');
 
 require('dotenv').config()
 
@@ -34,20 +35,20 @@ router.get('/:id', (req, res)=>{
     .then(async function (response) {
         // handle success
         // create variables
-        let currentRestaurant = response.data.businesses[req.params.id]
-        // console.log(currentRestaurant)
+        let currentRestaurant = response.data.businesses[req.params.id-1]
+        console.log(currentRestaurant)
         //create object of all reviews for single restaurant
             const restaurantAndReviews = await db.restaurant.findOne({
-                where: {id: req.params.id},
+                where: {yelpid: currentRestaurant.id},
                 include: [db.review]
             })
-
-            if (restaurantAndReviews){
-                res.render('restaurants/show.ejs', {restaurant:currentRestaurant,reviews:restaurantAndReviews.reviews})
-                
-            } else {
+  
+            if(restaurantAndReviews === null){
                 res.render('restaurants/show.ejs', {restaurant:currentRestaurant, reviews: null})
+            } else {
+                res.render('restaurants/show.ejs', {restaurant:currentRestaurant, reviews: restaurantAndReviews.reviews})
             }
+
 
     })
 })
@@ -55,17 +56,19 @@ router.get('/:id', (req, res)=>{
 // route to post a review
 
 router.post('/review', async (req, res)=>{
-
+    // console.log(req.body.yelpIndex, req.body.restaurant)
+    // this is allowing me to see the cookies/User Id
     const decryptedId = cryptojs.AES.decrypt(req.cookies.userId, process.env.SECRET)
     const decryptedIdString = decryptedId.toString(cryptojs.enc.Utf8)
-
+    // Here I am about to make an entry into the resturant DB
     const [restaurant, create] = await db.restaurant.findOrCreate({
-        where: {name: req.body.restaurant}
+        where: {yelpid: req.body.yelpIndex, name: req.body.restaurant}
     })
     const newReview = await db.review.create({
         comment: req.body.review,
         rating: req.body.rating
     })
+    
     restaurant.addReview(newReview)
     res.locals.user.addReview(newReview)
     res.redirect('back')
@@ -84,9 +87,9 @@ router.delete('/:id', (req, res)=>{
 
 })
 // Updating comments
-router.delete('/:id', (req, res)=>{
+router.put('/:id', (req, res)=>{
     
-    db.review.destroy({
+    db.review.update({
         where: {id: req.body.id}
     })
 

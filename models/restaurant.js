@@ -15,7 +15,8 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   restaurant.init({
-    name: DataTypes.STRING
+    name: DataTypes.STRING,
+    yelpid: DataTypes.STRING
   }, {
     sequelize,
     modelName: 'restaurant',

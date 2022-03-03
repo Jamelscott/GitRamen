@@ -4,7 +4,7 @@ sequelize model:create --name user --attributes username:string,email:string,pas
 
 # Restaurant-model
 
-sequelize model:create --name restaurant --attributes name:string
+sequelize model:create --name restaurant --attributes name:string,yelpid:string
 
 # Review - model 
 sequelize model:create --name review --attributes userId:string,restaurantId:string,comment:string,rating:integer

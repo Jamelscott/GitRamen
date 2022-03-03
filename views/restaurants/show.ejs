@@ -24,6 +24,8 @@
   <input type="number" name="rating" id="rating" min="1" max="5"/>
   <input type="submit" />
 </form>
+
+<%if(reviews){%>
 <ul>
 <% reviews.forEach((element, index) => { %>
   <li> 
@@ -33,12 +35,20 @@
        <li>review: <%=element.comment%></li>
       <li>rating: <%=element.rating%>/5</li>
       <%if(element.userId == user.id){%>
-      <li><input type="submit" id="delete" name="delete" value="delete"><input type="submit" id="update" name="update" value="update"></li>
+      <li><form action="/restaurants/resource?_method=DELETE" method="POST">
+            <input type="submit" id="delete" name="delete" value="delete">
+            <input hidden type="text" id="delete" name="id" value="<%=element.id%>">
+          </form>
+          <form action="/restaurants/resource?_method=PUT" method="POST">
+            <input type="submit" id="update" name="update" value="update">
+          </form>
+      </li>
       <%}%>
   </ul>
   </li>
   <% }) %>
 </ul> 
+<%}%>
 <!-- variables needed to provide script with EJS variables -->
 <% let latitude = restaurant.coordinates.latitude%>
 <% let longitude = restaurant.coordinates.longitude%>

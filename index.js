@@ -10,6 +10,7 @@ const db = require('./models/index.js');
 const { send } = require('express/lib/response');
 const bcrypt = require('bcrypt');
 const axios = require('axios')
+var methodOverride = require('method-override')
 const port = 8000
 
 // Middleware
@@ -17,6 +18,7 @@ app.use(expressLayouts); // lets know we want ot use laoyouts
 app.set('view engine', 'ejs');
 app.use(cookieParser()) // gives access to req.cookies
 app.use(express.urlencoded({ extended: false })); // body parser middleware
+app.use(methodOverride('_method')) //allow use of methods PUT & DELETE
 
 // Custom middleware
 app.use(async (req, res, next)=>{

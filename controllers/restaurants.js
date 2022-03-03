@@ -4,9 +4,11 @@ const router = express.Router();
 const db = require('../models')
 const bcrypt = require('bcrypt')
 const cryptojs = require('crypto-js');
-const { append } = require('express/lib/response');
+const { append, redirect } = require('express/lib/response');
 const axios = require('axios');
 const { sequelize } = require('../models');
+var methodOverride = require('method-override')
+
 require('dotenv').config()
 
 // Route to Restaurant Index page
@@ -40,8 +42,12 @@ router.get('/:id', (req, res)=>{
                 include: [db.review]
             })
 
-
-        res.render('restaurants/show.ejs', {restaurant:currentRestaurant,reviews:restaurantAndReviews.reviews})
+            if (restaurantAndReviews){
+                res.render('restaurants/show.ejs', {restaurant:currentRestaurant,reviews:restaurantAndReviews.reviews})
+                
+            } else {
+                res.render('restaurants/show.ejs', {restaurant:currentRestaurant, reviews: null})
+            }
 
     })
 })
@@ -62,11 +68,31 @@ router.post('/review', async (req, res)=>{
     })
     restaurant.addReview(newReview)
     res.locals.user.addReview(newReview)
+    res.redirect('back')
     // console.log(restaurant.reviews) // reviews for all of that restaurant
     
 
 })
+// Deleting comments
+router.delete('/:id', (req, res)=>{
+    
+    db.review.destroy({
+        where: {id: req.body.id}
+    })
 
+    res.redirect('back')
+
+})
+// Updating comments
+router.delete('/:id', (req, res)=>{
+    
+    db.review.destroy({
+        where: {id: req.body.id}
+    })
+
+    res.redirect('back')
+
+})
 
 
 

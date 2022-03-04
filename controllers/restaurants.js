@@ -34,7 +34,7 @@ router.put('/update', async (req, res)=>{
         where: {id: commentId}
     })
 
-    res.redirect('/restaurant/')
+    res.redirect('/restaurants/')
 
 })
 

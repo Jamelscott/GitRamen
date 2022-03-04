@@ -1,13 +1,19 @@
-<h1>RESTAURANT INDEX</h1>
+<h1 class="center">RESTAURANT INDEX</h1>
 
-<ul>
-<%restaurant.unshift({empty:null})%>
-<% for( let i = 1; i < restaurant.length; i++ ) { %>
-    <li>Name: <a href="/restaurants/<%=i%>"><%=restaurant[i].name%></a></li> 
-    <li>Rating: <%=restaurant[i].rating%></li> 
-    <li>Review count: <%=restaurant[i].review_count%></li> 
-    <li><img width="400px" height="400px"src="<%=restaurant[i].image_url%>" alt=""></li> 
-    <li hidden>i</li>
-<% } %>
-</ul>
+
+<div class="container">
+    <div class="row g-5">
+        <%restaurant.unshift({empty:null})%>
+        <% for( let i = 1; i < restaurant.length; i++ ) { %>
+            <div class="col-12 col-md-6 col-lg-4">
+        <img class="card-img-top" width="400px" height="400px" src="<%=restaurant[i].image_url%>" alt=""> 
+        <h5><a href="/restaurants/<%=i%>"><%=restaurant[i].name%></a></h5> 
+        <h5 class="card-text">Rating: <%=restaurant[i].rating%></h5> 
+        <h5 class="card-text">Review count: <%=restaurant[i].review_count%></h5> 
+        <h5 hidden class="card-text">i</h5>
+    </div>
+    <% } %>
+    </div>
+</div>
+
 

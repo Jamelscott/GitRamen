@@ -8,7 +8,6 @@ const { append, redirect } = require('express/lib/response');
 const axios = require('axios');
 const { sequelize } = require('../models');
 var methodOverride = require('method-override');
-const { user } = require('pg/lib/defaults');
 
 require('dotenv').config()
 
@@ -36,17 +35,23 @@ router.get('/:id', (req, res)=>{
         // handle success
         // create variables
         let currentRestaurant = response.data.businesses[req.params.id-1]
-        console.log(currentRestaurant)
+        // console.log(currentRestaurant)
         //create object of all reviews for single restaurant
             const restaurantAndReviews = await db.restaurant.findOne({
                 where: {yelpid: currentRestaurant.id},
-                include: [db.review]
+                include: {
+                    model: db.review,
+                    include: db.user
+                }
             })
-  
+            // console.log(restaurantAndReviews.reviews)
+   
+
+            // console.log(findUser)
             if(restaurantAndReviews === null){
-                res.render('restaurants/show.ejs', {restaurant:currentRestaurant, reviews: null})
+                res.render('restaurants/show.ejs', {restaurant:currentRestaurant, reviews: null, userData: res.locals.user})
             } else {
-                res.render('restaurants/show.ejs', {restaurant:currentRestaurant, reviews: restaurantAndReviews.reviews})
+                res.render('restaurants/show.ejs', {restaurant:currentRestaurant, reviews: restaurantAndReviews.reviews, userData: res.locals.user})
             }
 
 

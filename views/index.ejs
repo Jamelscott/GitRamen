@@ -1,14 +1,22 @@
-<h2>Login Below:</h2>
+<div class="center">
+    <div class ="margin10">
+    <img height="250px" width="250px" src="https://cdn-icons.flaticon.com/png/512/4474/premium/4474940.png?token=exp=1646345585~hmac=2363c97a7eb9d5b2ea9ab721c97faeef" alt="">
+</div>
+<p class="subtitle">Sign in</p>
 
 <form action="/login" method="POST">
-    <label for="username">Enter your username:</label>
-    <input type="text" name="username" id="username">
-    <label for="password">Enter your password:</label>
-    <input type="password" name="password" id="password">
-    <input type="submit" value="login">
-    
+    <div class="margin10">
+    <label for="username"></label>
+    <input class="inputField" type="text" name="username" id="username" placeholder="Enter your username">
+</div>
+<div class="margin10">
+    <label for="password"></label>
+    <input class="inputField" type="password" name="password" id="password" placeholder="Enter your password">
+</div>
+    <input class="button" type="submit" value="Enter">
 </form>
-<p>Don't have an account? <a href="/signup">Create one</a></p>
+<p>Don't have an account? <a style="color:black" href="/signup">Create one</a></p>
 <%if (error){%>
     <em style="color:red"><%=error%>, try again.</em>
     <%}%>
+</div>

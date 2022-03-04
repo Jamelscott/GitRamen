@@ -1,5 +1,6 @@
 // Imports
 const express = require('express')
+const path = require('path');
 var expressLayouts = require('express-ejs-layouts');
 require('dotenv').config() // allows uses to acces env vars
 const app = express();
@@ -14,11 +15,13 @@ var methodOverride = require('method-override')
 const port = 8000
 
 // Middleware
-app.use(expressLayouts); // lets know we want ot use laoyouts
+app.set("views", path.resolve(__dirname, "views"));//allwing me to use public folder for CSS and JS
+app.use(expressLayouts); // lets know we want ot use layouts
 app.set('view engine', 'ejs');
 app.use(cookieParser()) // gives access to req.cookies
 app.use(express.urlencoded({ extended: false })); // body parser middleware
 app.use(methodOverride('_method')) //allow use of methods PUT & DELETE
+app.use(express.static(__dirname + '/public')); //allwing me to use public folder for CSS and JS
 
 // Custom middleware
 app.use(async (req, res, next)=>{
@@ -29,7 +32,9 @@ app.use(async (req, res, next)=>{
         const decryptedIdString = decryptedId.toString(cryptoJS.enc.Utf8)
         // console.log(decryptedIdString)
         // querying the db for the user with that id
-        const user = await db.user.findByPk(decryptedIdString)
+        const user = await db.user.findByPk(decryptedIdString, {
+            include:[db.review]
+        })
         // assigning the found user to res.locals.user in the routes, and user in the ejs
         res.locals.user = user
     } else res.locals.user = null

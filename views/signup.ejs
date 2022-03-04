@@ -1,13 +1,24 @@
-<h2>Create a new User</h2>
+<div class="center">
+    <div class ="margin10">
+        <img height="250px" width="250px" src="https://cdn-icons.flaticon.com/png/512/4474/premium/4474940.png?token=exp=1646345585~hmac=2363c97a7eb9d5b2ea9ab721c97faeef" alt="">
+    </div>
+    <p class="subtitle">Create a new User</p>
 
 <form action="/signup" method="POST">
-    <label for="username">Enter Username:</label>
-<input type="text" name="username" id="username">
-    <label for="email">Enter email:</label>
-<input type="text" name="email" id="email">
-    <label for="password">Enter Password:</label>
-<input type="password" name="password" id="password">
-<input type="submit">
-<p style="color:red"><em><%=error%></em></p>
-<p>Already a member? <a href="/">Sign In</a></p>
+    <div class="margin10">
+    <label for="username"></label>
+<input class="inputField" type="text" name="username" id="username" placeholder="Enter your Username">
+</div>
+<div class="margin10">
+    <label for="email"></label>
+<input class="inputField" type="text" name="email" id="email" placeholder="Enter your email">
+</div>
+<div class="margin10">
+    <label for="password"></label>
+<input class="inputField" type="password" name="password" id="password" placeholder="Enter your password">
+</div>
+<input class="button" type="submit" value="Join">
 </form>
+<p>Already a member? <a style="color:black"  href="/">Sign In</a></p>
+<em style="color:red"><%=error%></em>
+</div>

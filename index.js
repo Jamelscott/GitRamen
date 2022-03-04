@@ -12,7 +12,7 @@ const { send } = require('express/lib/response');
 const bcrypt = require('bcrypt');
 const axios = require('axios')
 var methodOverride = require('method-override')
-const port = 8000
+const port = process.env.PORT
 
 // Middleware
 app.set("views", path.resolve(__dirname, "views"));//allwing me to use public folder for CSS and JS

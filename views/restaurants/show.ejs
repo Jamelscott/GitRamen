@@ -37,8 +37,11 @@
             value="<%=element.id%>"
           />
         </form>
-        <form action="/restaurants/resource?_method=PUT" method="POST">
-          <input type="submit" id="update" name="update" value="update" />
+        <form action="/restaurants/update" method="POST">
+          <input hidden type="text" name="id" value="<%=element.id%>">
+          <input hidden type="text" name="comment" value="<%=element.comment%>">
+          <input hidden type="text" name="rating" value="<%=element.rating%>">
+          <input type="submit" value="update"/>
         </form>
       </li>
       <%}%>

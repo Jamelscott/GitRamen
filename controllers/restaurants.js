@@ -11,6 +11,33 @@ var methodOverride = require('method-override');
 
 require('dotenv').config()
 
+
+// Get to update page
+router.post('/update', (req, res)=>{
+
+    const reviewData = req.body
+    res.render('restaurants/update.ejs',{reviewData: reviewData} )
+})
+//updating reviews
+router.put('/update', async (req, res)=>{
+
+        
+    const newComment = req.body.newComment
+    const newRating = req.body.newRating
+    const commentId = req.body.commentId
+    console.log(commentId)
+
+    const update = await db.review.update({
+        comment: newComment,
+        rating: newRating 
+    }, {
+        where: {id: commentId}
+    })
+
+    res.redirect('/restaurant/')
+
+})
+
 // Route to Restaurant Index page
 router.get('/', (req, res)=>{
     const url = `https://api.yelp.com/v3/businesses/search?location=vancouver&categories=ramen`
@@ -91,16 +118,6 @@ router.delete('/:id', (req, res)=>{
     res.redirect('back')
 
 })
-// Updating comments
-// router.put('/:id', (req, res)=>{
-    
-//     db.review.update({
-//         where: {id: req.body.id}
-//     })
-
-//     res.redirect('back')
-
-// })
 
 
 

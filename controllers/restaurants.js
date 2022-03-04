@@ -92,15 +92,15 @@ router.delete('/:id', (req, res)=>{
 
 })
 // Updating comments
-router.put('/:id', (req, res)=>{
+// router.put('/:id', (req, res)=>{
     
-    db.review.update({
-        where: {id: req.body.id}
-    })
+//     db.review.update({
+//         where: {id: req.body.id}
+//     })
 
-    res.redirect('back')
+//     res.redirect('back')
 
-})
+// })
 
 
 

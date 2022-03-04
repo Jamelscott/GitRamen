@@ -4,6 +4,8 @@
   rel="stylesheet"
 />
 <script src="https://api.mapbox.com/mapbox-gl-js/v2.7.0/mapbox-gl.js"></script>
+<!-- form to submit a review -->
+<div id="map" class="map" style="width: 1000px; height: 500px"></div>
 <!-- generated data fields from API -->
 <h1>Name: <%= restaurant.name%></h1>
 <h1>Address: <%= restaurant.location.address1%></h1>
@@ -13,8 +15,6 @@
 <h1><a href="#">Get directions here</a></h1>
 <h1>Image:</h1>
 <img width="500px" heigh="500px" src="<%= restaurant.image_url%>" alt="" />
-<!-- form to submit a review -->
-<div id="map" style="width: 400px; height: 300px"></div>
 
 <%if(reviews){%>
 <ul>

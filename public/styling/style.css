@@ -1,6 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
 *{
-    background-color: rgb(253, 252, 233);
     font-family: 'Roboto', sans-serif;
 
 }
@@ -9,11 +8,7 @@ body{
     font-family: 'Roboto', sans-serif;
 
 }
-html{
-    background-color: rgb(253, 252, 233);
-    font-family: 'Roboto', sans-serif;
 
-}
 
 .center{
     display: flex;
@@ -24,7 +19,7 @@ html{
 }
 
 .container{
-    background: #F1CA67;
+    /* background: #F1CA67; */
     background-clip: padding-box;
 }
 
@@ -177,3 +172,12 @@ html{
     font-size: 20px;
     font-weight: 600;
 }
+
+.navBar{
+    display: flex;
+    flex-direction: row;
+    margin-top: 5px;
+    justify-content: space-between;
+    
+}
+h5:link{color: black;}

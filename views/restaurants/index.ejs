@@ -1,12 +1,15 @@
 <h1 class="center margin10" style="color: black; font-weight: 900">
   Vancouver Ramen
 </h1>
-
-<div style="background-color: black;"class="container">
-  <div class="row g-5" style="text-align: center">
+<!-- main container -->
+<div class="container"> 
+  <!-- row containe -->
+  <div class="row" style="text-align: center;">
     <%restaurant.unshift({empty:null})%> <% for( let i = 1; i <
     restaurant.length; i++ ) { %>
-    <div class="col-12 col-md-6 col-lg-4">
+    <div  class=" col-sm-12 col-md-6 col-lg-4 mb-5">
+      <div class='card shadow bg-red rounded'>
+        <a style="color: black; font-weight: 900;text-decoration: none;" href="/restaurants/<%=i%>">
       <img
         class="card-img-top"
         width="400px"
@@ -15,9 +18,7 @@
         alt=""
       />
       <h5 class="margin10noBot">
-        <a style="color: black; font-weight: 900" href="/restaurants/<%=i%>"
-          ><%=restaurant[i].name%></a
-        >
+        <%=restaurant[i].name%>
       </h5>
       <h5 style="color: black; font-weight: 600; font-size: 14px">
         <%=restaurant[i].location.address1%>
@@ -201,11 +202,12 @@
       </h5>
 
       <% } %>
-      <h5 style="font-size: 15px" class="card-text">
-        <%=restaurant[i].review_count%> reviews
+      <h5 style="font-size: 15px;" class="card-text">
+        <%=restaurant[i].review_count%> Yelp reviews
       </h5>
       <h5 hidden class="card-text">i</h5>
-    </div>
+      </div>
+      </a>
+      </div>
     <% } %>
   </div>
-</div>

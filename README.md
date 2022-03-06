@@ -97,8 +97,8 @@ I chose to use [Figma](https://www.figma.com/) to create my wireframes. Please s
 ## Stretch goals
 - [x] add styling that includes drop shadows, hover, images/emojis for star ratings and error effects.
 - [x] allow user rating to be displayed as a star emoji instead of an integer.
-- [] allow users to upvote or "like" restaurants on the index page and have those restaurants displayed in chronological order based on likes.
-- [] allow users to input their own restaurants and allow the same functionality to include reviews/rating with those restaurants OR build in a form that allows logged in users to submit a request for a restaurant to be included in the index.
+- [ ] allow users to upvote or "like" restaurants on the index page and have those restaurants displayed in chronological order based on likes.
+- [ ] allow users to input their own restaurants and allow the same functionality to include reviews/rating with those restaurants OR build in a form that allows logged in users to submit a request for a restaurant to be included in the index.
 
 
 <!-- Restaurant -->

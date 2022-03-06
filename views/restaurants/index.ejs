@@ -1,19 +1,211 @@
-<h1 class="center">RESTAURANT INDEX</h1>
+<h1 class="center margin10" style="color: black; font-weight: 900">
+  Vancouver Ramen
+</h1>
 
+<div style="background-color: black;"class="container">
+  <div class="row g-5" style="text-align: center">
+    <%restaurant.unshift({empty:null})%> <% for( let i = 1; i <
+    restaurant.length; i++ ) { %>
+    <div class="col-12 col-md-6 col-lg-4">
+      <img
+        class="card-img-top"
+        width="400px"
+        height="400px"
+        src="<%=restaurant[i].image_url%>"
+        alt=""
+      />
+      <h5 class="margin10noBot">
+        <a style="color: black; font-weight: 900" href="/restaurants/<%=i%>"
+          ><%=restaurant[i].name%></a
+        >
+      </h5>
+      <h5 style="color: black; font-weight: 600; font-size: 14px">
+        <%=restaurant[i].location.address1%>
+      </h5>
 
-<div class="container">
-    <div class="row g-5">
-        <%restaurant.unshift({empty:null})%>
-        <% for( let i = 1; i < restaurant.length; i++ ) { %>
-            <div class="col-12 col-md-6 col-lg-4">
-        <img class="card-img-top" width="400px" height="400px" src="<%=restaurant[i].image_url%>" alt=""> 
-        <h5><a href="/restaurants/<%=i%>"><%=restaurant[i].name%></a></h5> 
-        <h5 class="card-text">Rating: <%=restaurant[i].rating%></h5> 
-        <h5 class="card-text">Review count: <%=restaurant[i].review_count%></h5> 
-        <h5 hidden class="card-text">i</h5>
+      <%let rating = restaurant[i].rating%> <% if (rating == 1) { %>
+      <h5 class="card-text margin10" style="display: inline-block">
+        <img height="30px" width="30px" src="/full-star.png" alt="full star" />
+      </h5>
+      <% } else if (rating == 1.5) { %>
+      <h5 class="card-text" style="display: inline-block">
+        <img
+          height="30px"
+          width="30px"
+          src="/full-star.png"
+          alt="full star"
+        /><img
+          height="30px"
+          width="30px"
+          src="/half-star.png"
+          alt="half star"
+        />
+      </h5>
+      <% } else if (rating == 2) { %>
+      <h5 class="card-text" style="display: inline-block">
+        <img
+          height="30px"
+          width="30px"
+          src="/full-star.png"
+          alt="full star"
+        /><img
+          height="30px"
+          width="30px"
+          src="/full-star.png"
+          alt="full star"
+        />
+      </h5>
+      <% } else if (rating == 2.5) { %>
+      <h5 class="card-text" style="display: inline-block">
+        <img
+          height="30px"
+          width="30px"
+          src="/full-star.png"
+          alt="full star"
+        /><img
+          height="30px"
+          width="30px"
+          src="/full-star.png"
+          alt="full star"
+        /><img
+          height="30px"
+          width="30px"
+          src="/half-star.png"
+          alt="half star"
+        />
+      </h5>
+      <% } else if (rating == 3) { %>
+      <h5 class="card-text" style="display: inline-block">
+        <img
+          height="30px"
+          width="30px"
+          src="/full-star.png"
+          alt="full star"
+        /><img
+          height="30px"
+          width="30px"
+          src="/full-star.png"
+          alt="full star"
+        /><img
+          height="30px"
+          width="30px"
+          src="/full-star.png"
+          alt="full star"
+        />
+      </h5>
+      <% } else if (rating == 3.5) { %>
+      <h5 class="card-text" style="display: inline-block">
+        <img
+          height="30px"
+          width="30px"
+          src="/full-star.png"
+          alt="full star"
+        /><img
+          height="30px"
+          width="30px"
+          src="/full-star.png"
+          alt="full star"
+        /><img
+          height="30px"
+          width="30px"
+          src="/full-star.png"
+          alt="full star"
+        /><img
+          height="30px"
+          width="30px"
+          src="/half-star.png"
+          alt="half star"
+        />
+      </h5>
+      <% } else if (rating == 4) { %>
+      <h5 class="card-text" style="display: inline-block">
+        <img
+          height="30px"
+          width="30px"
+          src="/full-star.png"
+          alt="full star"
+        /><img
+          height="30px"
+          width="30px"
+          src="/full-star.png"
+          alt="full star"
+        /><img
+          height="30px"
+          width="30px"
+          src="/full-star.png"
+          alt="full star"
+        /><img
+          height="30px"
+          width="30px"
+          src="/full-star.png"
+          alt="full star"
+        />
+      </h5>
+      <% } else if (rating == 4.5) { %>
+      <h5 class="card-text" style="display: inline-block">
+        <img
+          height="30px"
+          width="30px"
+          src="/full-star.png"
+          alt="full star"
+        /><img
+          height="30px"
+          width="30px"
+          src="/full-star.png"
+          alt="full star"
+        /><img
+          height="30px"
+          width="30px"
+          src="/full-star.png"
+          alt="full star"
+        /><img
+          height="30px"
+          width="30px"
+          src="/full-star.png"
+          alt="full star"
+        /><img
+          height="30px"
+          width="30px"
+          src="/half-star.png"
+          alt="half star"
+        />
+      </h5>
+      <% } else if (rating == 5) { %>
+      <h5 class="card-text" style="display: inline-block">
+        <img
+          height="30px"
+          width="30px"
+          src="/full-star.png"
+          alt="full star"
+        /><img
+          height="30px"
+          width="30px"
+          src="/full-star.png"
+          alt="full star"
+        /><img
+          height="30px"
+          width="30px"
+          src="/full-star.png"
+          alt="full star"
+        /><img
+          height="30px"
+          width="30px"
+          src="/full-star.png"
+          alt="full star"
+        /><img
+          height="30px"
+          width="30px"
+          src="/full-star.png"
+          alt="full star"
+        />
+      </h5>
+
+      <% } %>
+      <h5 style="font-size: 15px" class="card-text">
+        <%=restaurant[i].review_count%> reviews
+      </h5>
+      <h5 hidden class="card-text">i</h5>
     </div>
     <% } %>
-    </div>
+  </div>
 </div>
-
-

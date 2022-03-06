@@ -5,30 +5,234 @@
 />
 <script src="https://api.mapbox.com/mapbox-gl-js/v2.7.0/mapbox-gl.js"></script>
 <!-- form to submit a review -->
-<div id="map" class="map" style="width: 1000px; height: 500px"></div>
+<div id="map" class="map" style="width: 100%; height: 500px"></div>
 <!-- generated data fields from API -->
-<h1>Name: <%= restaurant.name%></h1>
-<h1>Address: <%= restaurant.location.address1%></h1>
-<h1>City: <%= restaurant.location.city%></h1>
-<h1>Rating: <%= restaurant.rating%></h1>
-<h1>Price: <%= restaurant.price%></h1>
-<h1><a href="#">Get directions here</a></h1>
-<h1>Image:</h1>
-<img width="500px" heigh="500px" src="<%= restaurant.image_url%>" alt="" />
-
+<div class="center">
+  <div class="row g-6">
+    <div style="text-align:left"class="col-12 col-md-6 col-lg-7">
+      <h1 style="color: black; font-weight: 900"><%= restaurant.name%></h1>
+      <h3>Address: <%= restaurant.location.address1%></h1>
+      <h3>City: <%= restaurant.location.city%></h1>
+      <h3>Rating: <%= restaurant.rating%></h1>
+      <h3>Price: <%= restaurant.price%></h1>
+      <h3>Image:</h1>
+    </div>
+    <div class="col-12 col-md-6 col-lg-4">
+      <img
+        width="500px"
+        heigh="500px"
+        src="<%= restaurant.image_url%>"
+        alt=""
+      />
+    </div>
+  </div>
+</div>
 <%if(reviews){%>
-<ul>
   <% reviews.forEach((element, index) => { %>
-  <li>
-    Review: <%=index + 1%>
-    <ul>
-      <li>Username: <%=element.user.username%></li>
-      <li>review: <%=element.comment%></li>
-      <li>rating: <%=element.rating%>/5</li>
+  <%console.log(Object.keys(element.createdAt))%>
+<div style="display:flex; justify-content: space-between; margin:1em;border: 5px solid black;">
+  <div class="reviewCard">
+    <div id="userAndPhoto" style="text-align:center; width:100px;margin-left:20px">
+      <img style="margin-top: 10px;"width="75px" height="75px"src="/ramen.PNG" alt="">
+      <p style="font-weight: 800;margin-top: 5px;"><%=element.user.username%></p>
+    </div>
+    <div id="rating" style="display:flex;flex-wrap:nowrap;min-width:200px;align-items:center;margin-left:10px;margin-right:10px;">
+      <%let rating = element.rating%> <% if (rating == 1) { %>
+        <h5 class="card-text margin10" style="display: inline-block">
+          <img height="30px" width="30px" src="/full-star.png" alt="full star" />
+        </h5>
+        <% } else if (rating == 1.5) { %>
+        <h5 class="card-text" style="display: inline-block">
+          <img
+            height="30px"
+            width="30px"
+            src="/full-star.png"
+            alt="full star"
+          /><img
+            height="30px"
+            width="30px"
+            src="/half-star.png"
+            alt="half star"
+          />
+        </h5>
+        <% } else if (rating == 2) { %>
+        <h5 class="card-text" style="display: inline-block">
+          <img
+            height="30px"
+            width="30px"
+            src="/full-star.png"
+            alt="full star"
+          /><img
+            height="30px"
+            width="30px"
+            src="/full-star.png"
+            alt="full star"
+          />
+        </h5>
+        <% } else if (rating == 2.5) { %>
+        <h5 class="card-text" style="display: inline-block">
+          <img
+            height="30px"
+            width="30px"
+            src="/full-star.png"
+            alt="full star"
+          /><img
+            height="30px"
+            width="30px"
+            src="/full-star.png"
+            alt="full star"
+          /><img
+            height="30px"
+            width="30px"
+            src="/half-star.png"
+            alt="half star"
+          />
+        </h5>
+        <% } else if (rating == 3) { %>
+        <h5 class="card-text" style="display: inline-block">
+          <img
+            height="30px"
+            width="30px"
+            src="/full-star.png"
+            alt="full star"
+          /><img
+            height="30px"
+            width="30px"
+            src="/full-star.png"
+            alt="full star"
+          /><img
+            height="30px"
+            width="30px"
+            src="/full-star.png"
+            alt="full star"
+          />
+        </h5>
+        <% } else if (rating == 3.5) { %>
+        <h5 class="card-text" style="display: inline-block">
+          <img
+            height="30px"
+            width="30px"
+            src="/full-star.png"
+            alt="full star"
+          /><img
+            height="30px"
+            width="30px"
+            src="/full-star.png"
+            alt="full star"
+          /><img
+            height="30px"
+            width="30px"
+            src="/full-star.png"
+            alt="full star"
+          /><img
+            height="30px"
+            width="30px"
+            src="/half-star.png"
+            alt="half star"
+          />
+        </h5>
+        <% } else if (rating == 4) { %>
+        <h5 class="card-text" style="display: inline-block">
+          <img
+            height="30px"
+            width="30px"
+            src="/full-star.png"
+            alt="full star"
+          /><img
+            height="30px"
+            width="30px"
+            src="/full-star.png"
+            alt="full star"
+          /><img
+            height="30px"
+            width="30px"
+            src="/full-star.png"
+            alt="full star"
+          /><img
+            height="30px"
+            width="30px"
+            src="/full-star.png"
+            alt="full star"
+          />
+        </h5>
+        <% } else if (rating == 4.5) { %>
+        <h5 class="card-text" style="display: inline-block">
+          <img
+            height="30px"
+            width="30px"
+            src="/full-star.png"
+            alt="full star"
+          /><img
+            height="30px"
+            width="30px"
+            src="/full-star.png"
+            alt="full star"
+          /><img
+            height="30px"
+            width="30px"
+            src="/full-star.png"
+            alt="full star"
+          /><img
+            height="30px"
+            width="30px"
+            src="/full-star.png"
+            alt="full star"
+          /><img
+            height="30px"
+            width="30px"
+            src="/half-star.png"
+            alt="half star"
+          />
+        </h5>
+        <% } else if (rating == 5) { %>
+        <h5 class="card-text" style="display: inline-block">
+          <img
+            height="30px"
+            width="30px"
+            src="/full-star.png"
+            alt="full star"
+          /><img
+            height="30px"
+            width="30px"
+            src="/full-star.png"
+            alt="full star"
+          /><img
+            height="30px"
+            width="30px"
+            src="/full-star.png"
+            alt="full star"
+          /><img
+            height="30px"
+            width="30px"
+            src="/full-star.png"
+            alt="full star"
+          /><img
+            height="30px"
+            width="30px"
+            src="/full-star.png"
+            alt="full star"
+          />
+        </h5>
+        <% } %>
+    </div>
+    <div id="comment" style="display:flex;align-items:center;min-width:500px">
+      <p class="reviewText"><%=element.comment%></p>
+    </div>
+    <div id="updateAndDelete" style="display:flex;flex-direction:column;justify-content:center;align-items: center;margin-right: 20px;">
       <%if(element.userId == user.id){%>
-      <li>
+        <form action="/restaurants/update" method="POST">
+          <input hidden type="text" name="id" value="<%=element.id%>" />
+          <input
+          hidden
+          type="text"
+          name="comment"
+          value="<%=element.comment%>"
+          />
+          <input hidden type="text" name="rating" value="<%=element.rating%>" />
+          <input class="updateDeteleButton"type="submit" value="edit" />
+        </form>
         <form action="/restaurants/resource?_method=DELETE" method="POST">
-          <input type="submit" id="delete" name="delete" value="delete" />
+          <input class="updateDeteleButton"type="submit" id="delete" name="delete" value="delete" />
           <input
             hidden
             type="text"
@@ -37,39 +241,43 @@
             value="<%=element.id%>"
           />
         </form>
-        <form action="/restaurants/update" method="POST">
-          <input hidden type="text" name="id" value="<%=element.id%>">
-          <input hidden type="text" name="comment" value="<%=element.comment%>">
-          <input hidden type="text" name="rating" value="<%=element.rating%>">
-          <input type="submit" value="update"/>
-        </form>
-      </li>
-      <%}%>
-    </ul>
-  </li>
-</ul>
-<% }) %>
-<%}%>
-
-<form action="/restaurants/review" method="POST">
-  <label for="restaurant"></label>
-  <input
-    hidden
-    type="text"
-    name="restaurant"
-    id="restaurant"
-    value="<%=restaurant.name%>"
-  />
-  <label for="review">Add a review: </label>
-  <input type="text" name="review" id="review" />
-  <label for="rating">Add a rating:</label>
-  <input type="number" name="rating" id="rating" min="1" max="5" />
-  <label for="id"></label>
-  <input hidden type="text" name="yelpIndex" value="<%=restaurant.id%>">
-  <label for="name"></label>
-  <input hidden type="text" name="name" value="<%=restaurant.name%>">
-  <input type="submit" />
-</form>
+        <%}%>
+    </div>
+  </div>
+</div>
+      <% }) %> <%}%>
+  
+<div class="center" style="margin-bottom: 30px">
+  <form action="/restaurants/review" method="POST">
+    <label for="restaurant"></label>
+    <input
+      hidden
+      type="text"
+      name="restaurant"
+      id="restaurant"
+      value="<%=restaurant.name%>"
+    />
+  <div class="reviewSubmitBox">
+      <div> 
+      <label for="review">Add a review: </label>
+      <div style="text-align:center">
+        <textarea class="reviewInput" type="text" name="review" id="review"></textarea>
+      </div>
+    </div>
+    <div>
+      <label for="rating">Add a rating:</label><br>
+      <div>
+        <input class="ratingInput"type="number" name="rating" id="rating" min="1" max="5" />
+        <label for="id"></label>
+      </div>
+    </div>
+  </div>
+    <input hidden type="text" name="yelpIndex" value="<%=restaurant.id%>" />
+    <label for="name"></label>
+    <input hidden type="text" name="name" value="<%=restaurant.name%>" /><br>
+    <input class="reviewButton"type="submit" value="Submit Review" />
+  </form>
+</div>
 <!-- variables needed to provide script with EJS variables -->
 <% let latitude = restaurant.coordinates.latitude%> <% let longitude =
 restaurant.coordinates.longitude%>

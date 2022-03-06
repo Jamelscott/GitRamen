@@ -89,16 +89,16 @@ I chose to use [Figma](https://www.figma.com/) to create my wireframes. Please s
 
 ## MVP goals
 
-[x] Build a Sequelize model/SQL database of users that can be accessed to create and log-in users.
-[x] Generate between 6-20 ramen of the top rated ramen restaurants from YELP FUSION api and display them in a card-like format.
-[x] allow users to select a specific restaurant and display detailed information about that restaurant such as address, phone number, total reviews, average rating and pricing.
-[x] allow users to create, update and/or delete any number of reviews that they've posted.
+- [x] Build a Sequelize model/SQL database of users that can be accessed to create and log-in users.
+- [x] Generate between 6-20 ramen of the top rated ramen restaurants from YELP FUSION api and display them in a card-like format.
+- [x] allow users to select a specific restaurant and display detailed information about that restaurant such as address, phone number, total reviews, average rating and pricing.
+- [x] allow users to create, update and/or delete any number of reviews that they've posted.
 
 ## Stretch goals
-[x] add styling that includes drop shadows, hover, images/emojis for star ratings and error effects.
-[x] allow user rating to be displayed as a star emoji instead of an integer.
-[] allow users to upvote or "like" restaurants on the index page and have those restaurants displayed in chronological order based on likes.
-[] allow users to input their own restaurants and allow the same functionality to include reviews/rating with those restaurants OR build in a form that allows logged in users to submit a request for a restaurant to be included in the index.
+- [x] add styling that includes drop shadows, hover, images/emojis for star ratings and error effects.
+- [x] allow user rating to be displayed as a star emoji instead of an integer.
+- [] allow users to upvote or "like" restaurants on the index page and have those restaurants displayed in chronological order based on likes.
+- [] allow users to input their own restaurants and allow the same functionality to include reviews/rating with those restaurants OR build in a form that allows logged in users to submit a request for a restaurant to be included in the index.
 
 
 <!-- Restaurant -->

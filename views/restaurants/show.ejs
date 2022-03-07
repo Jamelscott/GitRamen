@@ -7,23 +7,201 @@
 <!-- form to submit a review -->
 <div id="map" class="map" style="width: 100%; height: 500px"></div>
 <!-- generated data fields from API -->
-<div class="center">
-  <div class="row g-6">
-    <div style="text-align:left"class="col-12 col-md-6 col-lg-7">
-      <h1 style="color: black; font-weight: 900"><%= restaurant.name%></h1>
-      <h3>Address: <%= restaurant.location.address1%></h1>
-      <h3>City: <%= restaurant.location.city%></h1>
-      <h3>Rating: <%= restaurant.rating%></h1>
-      <h3>Price: <%= restaurant.price%></h1>
-      <h3>Image:</h1>
-    </div>
-    <div class="col-12 col-md-6 col-lg-4">
+<div style="box-shadow: 4px 4px 10px #9e9e9e">
+  <div STYLE="display:flex;flex-direction:row;justify-content:center;margin:20px">
+    <div style="margin-right:5px">
       <img
         width="500px"
         heigh="500px"
         src="<%= restaurant.image_url%>"
         alt=""
       />
+    </div>
+    <div style="margin-right:5px;display:flex;flex-direction:column;justify-content: center">
+      <h1 style="color: black; font-weight: 900"><%= restaurant.name%></h1>
+      <h3><%= restaurant.location.address1%></h1>
+      <h3> <%= restaurant.location.city%>, <%=restaurant.location.state%></h1>
+
+      <h3>Yelp Rating: <%let rating = restaurant.rating%> <% if (rating == 1) { %>
+      <h5 class="card-text margin10" style="display: inline-block">
+        <img height="30px" width="30px" src="/full-star.png" alt="full star" />
+      </h5>
+      <% } else if (rating == 1.5) { %>
+      <h5 class="card-text" style="display: inline-block">
+        <img
+          height="30px"
+          width="30px"
+          src="/full-star.png"
+          alt="full star"
+        /><img
+          height="30px"
+          width="30px"
+          src="/half-star.png"
+          alt="half star"
+        />
+      </h5>
+      <% } else if (rating == 2) { %>
+      <h5 class="card-text" style="display: inline-block">
+        <img
+          height="30px"
+          width="30px"
+          src="/full-star.png"
+          alt="full star"
+        /><img
+          height="30px"
+          width="30px"
+          src="/full-star.png"
+          alt="full star"
+        />
+      </h5>
+      <% } else if (rating == 2.5) { %>
+      <h5 class="card-text" style="display: inline-block">
+        <img
+          height="30px"
+          width="30px"
+          src="/full-star.png"
+          alt="full star"
+        /><img
+          height="30px"
+          width="30px"
+          src="/full-star.png"
+          alt="full star"
+        /><img
+          height="30px"
+          width="30px"
+          src="/half-star.png"
+          alt="half star"
+        />
+      </h5>
+      <% } else if (rating == 3) { %>
+      <h5 class="card-text" style="display: inline-block">
+        <img
+          height="30px"
+          width="30px"
+          src="/full-star.png"
+          alt="full star"
+        /><img
+          height="30px"
+          width="30px"
+          src="/full-star.png"
+          alt="full star"
+        /><img
+          height="30px"
+          width="30px"
+          src="/full-star.png"
+          alt="full star"
+        />
+      </h5>
+      <% } else if (rating == 3.5) { %>
+      <h5 class="card-text" style="display: inline-block">
+        <img
+          height="30px"
+          width="30px"
+          src="/full-star.png"
+          alt="full star"
+        /><img
+          height="30px"
+          width="30px"
+          src="/full-star.png"
+          alt="full star"
+        /><img
+          height="30px"
+          width="30px"
+          src="/full-star.png"
+          alt="full star"
+        /><img
+          height="30px"
+          width="30px"
+          src="/half-star.png"
+          alt="half star"
+        />
+      </h5>
+      <% } else if (rating == 4) { %>
+      <h5 class="card-text" style="display: inline-block">
+        <img
+          height="30px"
+          width="30px"
+          src="/full-star.png"
+          alt="full star"
+        /><img
+          height="30px"
+          width="30px"
+          src="/full-star.png"
+          alt="full star"
+        /><img
+          height="30px"
+          width="30px"
+          src="/full-star.png"
+          alt="full star"
+        /><img
+          height="30px"
+          width="30px"
+          src="/full-star.png"
+          alt="full star"
+        />
+      </h5>
+      <% } else if (rating == 4.5) { %>
+      <h5 class="card-text" style="display: inline-block">
+        <img
+          height="30px"
+          width="30px"
+          src="/full-star.png"
+          alt="full star"
+        /><img
+          height="30px"
+          width="30px"
+          src="/full-star.png"
+          alt="full star"
+        /><img
+          height="30px"
+          width="30px"
+          src="/full-star.png"
+          alt="full star"
+        /><img
+          height="30px"
+          width="30px"
+          src="/full-star.png"
+          alt="full star"
+        /><img
+          height="30px"
+          width="30px"
+          src="/half-star.png"
+          alt="half star"
+        />
+      </h5>
+      <% } else if (rating == 5) { %>
+      <h5 class="card-text" style="display: inline-block">
+        <img
+          height="30px"
+          width="30px"
+          src="/full-star.png"
+          alt="full star"
+        /><img
+          height="30px"
+          width="30px"
+          src="/full-star.png"
+          alt="full star"
+        /><img
+          height="30px"
+          width="30px"
+          src="/full-star.png"
+          alt="full star"
+        /><img
+          height="30px"
+          width="30px"
+          src="/full-star.png"
+          alt="full star"
+        /><img
+          height="30px"
+          width="30px"
+          src="/full-star.png"
+          alt="full star"
+        />
+      </h5>
+
+      <% } %></h1>
+      <h3>GitRamen Rating:</h3>
+      <em style="font-size: 15px;">Coming soon</em>
     </div>
   </div>
 </div>
@@ -261,18 +439,17 @@
       <div> 
       <label for="review">Add a review: </label>
       <div style="text-align:center">
-        <textarea class="reviewInput" type="text" name="review" id="review"></textarea>
+        <textarea required class="reviewInput" type="text" name="review" id="review"></textarea>
       </div>
     </div>
     <div>
       <label for="rating">Add a rating:</label><br>
       <div>
-        <input class="ratingInput"type="number" name="rating" id="rating" min="1" max="5" />
+        <input required class="ratingInput"type="number" name="rating" id="rating" min="1" max="5" />
         <label for="id"></label>
       </div>
     </div>
   </div>
-  <%console.log(restaurant)%>
     <input hidden type="text" name="yelpIndex" value="<%=restaurant.id%>" />
     <label for="name"></label>
     <input hidden type="text" name="name" value="<%=restaurant.name%>" /><br>

@@ -1,9 +1,24 @@
-<h1>Welcome to the udpate page</h1>
+<h1 class="center" style="margin:20px 0">Update your review</h1>
+
 <form action="/restaurants/update?_method=PUT" method="POST">
-    <label for="comment">New Review:</label>
-    <input type="text" name="newComment"value="<%=reviewData.comment%>">
-    <label for="rating">New Rating:</label>
-    <input type="number" min="1" max="5" name="newRating"value="<%=reviewData.rating%>">
-    <input hidden type="text" name="commentId"value="<%=reviewData.id%>">
-    <input type="submit">
-</form>
+    <div class="reviewSubmitBox" style="text-align:center">
+        <div> 
+            <label for="comment">New Review:</label>
+            <div style="text-align:center">
+                <textarea required class="reviewUpdateInput" type="text" name="newComment" ><%=reviewData.comment%></textarea>
+            </div>
+        </div>
+        <div>
+            <label for="rating">New Rating:</label><br>
+            <div>
+                <input required class="ratingInput" type="number" min="1" max="5" name="newRating"value="<%=reviewData.rating%>">
+                <input hidden type="text" name="commentId"value="<%=reviewData.id%>">
+            </div>
+        </div>
+    </div>
+    <div style="display:flex;justify-content:center;margin-top:20px">
+        <input class="reviewButton" type="submit">
+    </div>
+    </form>
+    
+    

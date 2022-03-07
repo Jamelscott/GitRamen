@@ -15,11 +15,13 @@ require('dotenv').config()
 // Get to update page
 router.post('/update', (req, res)=>{
 
+    console.log(req.query)
     const reviewData = req.body
     res.render('restaurants/update.ejs',{reviewData: reviewData} )
 })
 //updating reviews
 router.put('/update', async (req, res)=>{
+
 
         
     const newComment = req.body.newComment
@@ -118,17 +120,5 @@ router.delete('/:id', (req, res)=>{
     res.redirect('back')
 
 })
-
-
-
-
-{/* <div id="map" style="width: 400px; height: 300px"></div>
-<form action="/review" method="POST">
-  <label for="">Add a review: </label>
-  <input type="text" name="review" id="review" />
-  <label for="">Add a rating:</label>
-  <input type="number" name="rating" id="rating" min="1" max="5"/>
-  <input type="submit" />
-</form> */}
 
 module.exports = router;

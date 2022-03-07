@@ -153,6 +153,16 @@ body{
     margin:15px;
 }
 
+.title{
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 800;
+    font-size: 48px;
+    line-height: 42px;
+    margin-left:15px;
+}
+
+
 .map{
     background-color: white;
 }
@@ -181,3 +191,8 @@ body{
     
 }
 h5:link{color: black;}
+
+.navbar h1{
+    font-size: 1.8em !important;
+    font-weight: 800;
+    }

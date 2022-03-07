@@ -30,15 +30,15 @@
 <%if(reviews){%>
   <% reviews.forEach((element, index) => { %>
   <%console.log(Object.keys(element.createdAt))%>
-<div style="display:flex; justify-content: space-between; margin:1em;border: 5px solid black;">
+<div style="display:flex; justify-content: space-between; margin:1em; background-color: #F8F9FA;box-shadow: 4px 4px 10px #9e9e9e">
   <div class="reviewCard">
     <div id="userAndPhoto" style="text-align:center; width:100px;margin-left:20px">
       <img style="margin-top: 10px;"width="75px" height="75px"src="/ramen.PNG" alt="">
       <p style="font-weight: 800;margin-top: 5px;"><%=element.user.username%></p>
     </div>
-    <div id="rating" style="display:flex;flex-wrap:nowrap;min-width:200px;align-items:center;margin-left:10px;margin-right:10px;">
+    <div id="rating" style="display:flex;flex-wrap:nowrap;min-width:200px;align-items:center;justify-content: left;margin-left:10px;margin-right:10px;">
       <%let rating = element.rating%> <% if (rating == 1) { %>
-        <h5 class="card-text margin10" style="display: inline-block">
+        <h5 class="card-text" style="display: inline-block">
           <img height="30px" width="30px" src="/full-star.png" alt="full star" />
         </h5>
         <% } else if (rating == 1.5) { %>
@@ -272,6 +272,7 @@
       </div>
     </div>
   </div>
+  <%console.log(restaurant)%>
     <input hidden type="text" name="yelpIndex" value="<%=restaurant.id%>" />
     <label for="name"></label>
     <input hidden type="text" name="name" value="<%=restaurant.name%>" /><br>

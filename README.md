@@ -74,7 +74,7 @@ I chose to use [Figma](https://www.figma.com/) to create my wireframes. Please s
 
 
 ![Figma Sign-up page](https://github.com/Jamelscott/P2-Ramen/blob/main/planning/p2-signup.PNG?raw=true)
-![Figma Sign-in page](https://github.com/Jamelscott/P2-Ramen/blob/main/planning/main/p2-signin.PNG?raw=true)
+![Figma Sign-in page](https://github.com/Jamelscott/P2-Ramen/blob/main/planning/p2-signin.PNG?raw=true)
 ![Figma Detailed Restaurant page](https://github.com/Jamelscott/P2-Ramen/blob/main/planning/p2-detailrestaurant.PNG?raw=true)
 ![Figma All Restaurants page](https://github.com/Jamelscott/P2-Ramen/blob/main/planning/p2-allrestaurants.PNG?raw=true)
 

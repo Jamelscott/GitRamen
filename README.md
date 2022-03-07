@@ -5,7 +5,27 @@
 GitRamenVancouver is an exclusive webapp for ramen connoisseurs that allows logged-in users to rate and review the top ramen restaurants in the greater Vancouver area. Our site offers detailed information regarding the top rated ramen restaurants in the city as well as the opportunity for users to post their opiniona and give a personally rating for each restaurant. Our site offers an average rating of all reviews which in turn provides users will top notch recommendations.
 Our hopes for this web app is to develop a web-home for Ramen lovers and provide a reliable resource for those looking to determine where to find the best ramen in the city.Log-in to gets started.
 
+# Installation Instructions
 
+### NPM packages to install
+
+* axios
+* bcrypt
+* cookie-parser
+* crypto-js
+* dotenv
+* ejs
+* express
+* express-ejs-layouts
+* mapbox-gl
+* method-override
+* pg
+* sequelize
+* sequelize-cli
+
+## Database and tables
+
+TBC
 
 ## API Choice
 

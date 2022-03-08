@@ -6,8 +6,6 @@ Our hopes for this web app is to develop a web-home for Ramen lovers and provide
 
 ## Installation Instructions
 
-#### NPM packages to install
-
 * Clone down this repo via HTTPS or SSH
 * copy/paste to install the necessary npm modules
 ```

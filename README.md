@@ -5,7 +5,6 @@ GitRamenVancouver is an exclusive webapp for ramen connoisseurs that allows logg
 Our hopes for this web app is to develop a web-home for Ramen lovers and provide a reliable resource for those looking to determine where to find the best ramen in the city.Log-in to gets started.
 
 ## Installation Instructions
------
 
 #### NPM packages to install
 
@@ -38,7 +37,6 @@ MAPBOX_ACCESS=
 
 
 ## API Choice
------
 
 ### YELP FUSION
 YELPs API 'yelp fusion' provides access to any establishedment on YELP with a minumum of 1 review. I plan to use a query search to extract data with a location of VANCOUVER and a keyword of RAMEN. 
@@ -78,12 +76,10 @@ app.get('/', (req, res)=>{
 
 
 ## Entity Relationship Diagram
------
 
 ![and RD](./planning/P2-ERD.png)
 
 ## RESTful Routing Chart
------
 
 | Method | Path | Purpose |
 | ------ | -------------- | -------------------------------- |
@@ -99,7 +95,6 @@ app.get('/', (req, res)=>{
 | DELETE | `/restaurant/:id/review` | user can delete one of their reviews, the user always stays on `GET /restaurant/"id` |
 
 ## Wireframes
------
 
 I chose to use [Figma](https://www.figma.com/) to create my wireframes. Please see the link below for a flow chart and/or the screenshots of that flow chart.
 
@@ -116,7 +111,6 @@ I chose to use [Figma](https://www.figma.com/) to create my wireframes. Please s
 
 
 ## User Stories
------
 
 * As a user, I want to sign up or create an account.
 * as a user, I want to see a list of the highest rated Ramen restaurants in the city.
@@ -125,7 +119,6 @@ I chose to use [Figma](https://www.figma.com/) to create my wireframes. Please s
 * As a user, I want to be able to log out to avoid any other people posting on my computer on my behalf.
 
 ## MVP goals
------
 
 - [x] Build a Sequelize model/SQL database of users that can be accessed to create and log-in users.
 - [x] Generate between 6-20 ramen of the top rated ramen restaurants from YELP FUSION api and display them in a card-like format.
@@ -133,7 +126,6 @@ I chose to use [Figma](https://www.figma.com/) to create my wireframes. Please s
 - [x] allow users to create, update and/or delete any number of reviews that they've posted.
 
 ## Stretch goals
------
 
 - [x] add styling that includes drop shadows, hover, images/emojis for star ratings and error effects.
 - [x] allow user rating to be displayed as a star emoji instead of an integer.

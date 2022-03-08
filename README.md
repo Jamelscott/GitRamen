@@ -1,33 +1,45 @@
 # GitRamenVancouver
-
-[Check it out here](https://git-ramen.herokuapp.com/)
+-----
+[Here is the deploy link](https://git-ramen.herokuapp.com/)
 
 GitRamenVancouver is an exclusive webapp for ramen connoisseurs that allows logged-in users to rate and review the top ramen restaurants in the greater Vancouver area. Our site offers detailed information regarding the top rated ramen restaurants in the city as well as the opportunity for users to post their opiniona and give a personally rating for each restaurant. Our site offers an average rating of all reviews which in turn provides users will top notch recommendations.
 Our hopes for this web app is to develop a web-home for Ramen lovers and provide a reliable resource for those looking to determine where to find the best ramen in the city.Log-in to gets started.
 
 ## Installation Instructions
+-----
 
 #### NPM packages to install
 
-* axios
-* bcrypt
-* cookie-parser
-* crypto-js
-* dotenv
-* ejs
-* express
-* express-ejs-layouts
-* mapbox-gl
-* method-override
-* pg
-* sequelize
-* sequelize-cli
+* Clone down this repo via HTTPS or SSH
+* copy/paste to install the necessary npm modules
+```
+npm i axios bcrypt cookie-parser crypto-js dotenv ejs express express-ejs-layouts mapbox-gl method-override pg sequelize sequelize-cli 
+```
+* create a database called gitramen. SQL/Postgres uses, see below..
+```
+CREATE DATABASE gitramen
+```
+* Inside the config.json file adjust the username and password as per your machine (remove username and password if on a mac, adjust username and password for WSL)
+* also in config.json, ensure your dialect is set to whatever database system you're using
+* in your terminal, migrate your the gitramen database with the models that were cloned down. sequelize users can use the code below.
+```
+sequelize db:migrate
+```
+* create a .env file
+* Choose a port number and secret
+* aquire an API key from mapbox and yelp
+Your .env file should looks like the following(with your own information filled out):
+```
+PORT=
+SECRET=
+YELP_ACCESS=
+MAPBOX_ACCESS=
+```
+* Open your favourite browser and go to localhost:${PORT}. 
 
-#### Database and tables
-
-TBC
 
 ## API Choice
+-----
 
 ### YELP FUSION
 YELPs API 'yelp fusion' provides access to any establishedment on YELP with a minumum of 1 review. I plan to use a query search to extract data with a location of VANCOUVER and a keyword of RAMEN. 
@@ -67,10 +79,12 @@ app.get('/', (req, res)=>{
 
 
 ## Entity Relationship Diagram
+-----
 
 ![and RD](./planning/P2-ERD.png)
 
 ## RESTful Routing Chart
+-----
 
 | Method | Path | Purpose |
 | ------ | -------------- | -------------------------------- |
@@ -86,6 +100,7 @@ app.get('/', (req, res)=>{
 | DELETE | `/restaurant/:id/review` | user can delete one of their reviews, the user always stays on `GET /restaurant/"id` |
 
 ## Wireframes
+-----
 
 I chose to use [Figma](https://www.figma.com/) to create my wireframes. Please see the link below for a flow chart and/or the screenshots of that flow chart.
 
@@ -102,6 +117,7 @@ I chose to use [Figma](https://www.figma.com/) to create my wireframes. Please s
 
 
 ## User Stories
+-----
 
 * As a user, I want to sign up or create an account.
 * as a user, I want to see a list of the highest rated Ramen restaurants in the city.
@@ -110,6 +126,7 @@ I chose to use [Figma](https://www.figma.com/) to create my wireframes. Please s
 * As a user, I want to be able to log out to avoid any other people posting on my computer on my behalf.
 
 ## MVP goals
+-----
 
 - [x] Build a Sequelize model/SQL database of users that can be accessed to create and log-in users.
 - [x] Generate between 6-20 ramen of the top rated ramen restaurants from YELP FUSION api and display them in a card-like format.
@@ -117,6 +134,8 @@ I chose to use [Figma](https://www.figma.com/) to create my wireframes. Please s
 - [x] allow users to create, update and/or delete any number of reviews that they've posted.
 
 ## Stretch goals
+-----
+
 - [x] add styling that includes drop shadows, hover, images/emojis for star ratings and error effects.
 - [x] allow user rating to be displayed as a star emoji instead of an integer.
 - [ ] allow users to upvote or "like" restaurants on the index page and have those restaurants displayed in chronological order based on likes.

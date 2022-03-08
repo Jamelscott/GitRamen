@@ -120,4 +120,13 @@ I chose to use [Figma](https://www.figma.com/) to create my wireframes. Please s
 - [x] add styling that includes drop shadows, hover, images/emojis for star ratings and error effects.
 - [x] allow user rating to be displayed as a star emoji instead of an integer.
 - [ ] allow users to upvote or "like" restaurants on the index page and have those restaurants displayed in chronological order based on likes.
-- [ ] allow users to input their own restaurants and allow the same functionality to include reviews/rating with those restaurants OR build in a form that allows logged in users to submit a request for a restaurant to be included in the index.
+- [ ] allow users to input their own restaurants and allow the same functionality to include reviews/rating with those restaurants OR build in a form that allows logged in users to submit a request for a restaurant to be included in the index.Future:
+- [ ] inpliment a feature that allows the user to input a city
+- [ ] add responsiveness to single restaurant page and update page
+- [ ] update small alignment bugs
+- [ ] update pathing on update page to send you back to the page you were on previously, instead of the index.
+- [ ] not a white background.
+- [ ] add an average rating for each restaurant based on the reviews on GitRamen
+- [ ] provide a directions link which will provide a link to google maps at a restaurant's location
+- [ ] view all of your comments
+- [ ] diamond in the rough: send a request to the dev to add a restaurant via email.

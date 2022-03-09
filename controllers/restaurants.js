@@ -15,19 +15,15 @@ require('dotenv').config()
 // Get to update page
 router.post('/update', (req, res)=>{
 
-    console.log(req.query)
     const reviewData = req.body
     res.render('restaurants/update.ejs',{reviewData: reviewData} )
 })
 //updating reviews
 router.put('/update', async (req, res)=>{
-
-
-        
+    const restId = req.body.restId
     const newComment = req.body.newComment
     const newRating = req.body.newRating
     const commentId = req.body.commentId
-    console.log(commentId)
 
     const update = await db.review.update({
         comment: newComment,
@@ -36,7 +32,7 @@ router.put('/update', async (req, res)=>{
         where: {id: commentId}
     })
 
-    res.redirect('/restaurants/')
+    res.redirect(`/restaurants/${restId}`)
 
 })
 
@@ -64,7 +60,6 @@ router.get('/:id', (req, res)=>{
         // handle success
         // create variables
         let currentRestaurant = response.data.businesses[req.params.id-1]
-        // console.log(currentRestaurant)
         //create object of all reviews for single restaurant
             const restaurantAndReviews = await db.restaurant.findOne({
                 where: {yelpid: currentRestaurant.id},
@@ -73,14 +68,13 @@ router.get('/:id', (req, res)=>{
                     include: db.user
                 }
             })
-            // console.log(restaurantAndReviews.reviews)
+            const restaurantIdentifier = req.params.id
    
 
-            // console.log(findUser)
             if(restaurantAndReviews === null){
-                res.render('restaurants/show.ejs', {restaurant:currentRestaurant, reviews: null, userData: res.locals.user})
+                res.render('restaurants/show.ejs', {restaurant:currentRestaurant, restId: restaurantIdentifier, reviews: null, userData: res.locals.user})
             } else {
-                res.render('restaurants/show.ejs', {restaurant:currentRestaurant, reviews: restaurantAndReviews.reviews, userData: res.locals.user})
+                res.render('restaurants/show.ejs', {restaurant:currentRestaurant, restId: restaurantIdentifier, reviews: restaurantAndReviews.reviews, userData: res.locals.user})
             }
 
 
@@ -90,7 +84,6 @@ router.get('/:id', (req, res)=>{
 // route to post a review
 
 router.post('/review', async (req, res)=>{
-    // console.log(req.body.yelpIndex, req.body.restaurant)
     // this is allowing me to see the cookies/User Id
     const decryptedId = cryptojs.AES.decrypt(req.cookies.userId, process.env.SECRET)
     const decryptedIdString = decryptedId.toString(cryptojs.enc.Utf8)
@@ -106,7 +99,7 @@ router.post('/review', async (req, res)=>{
     restaurant.addReview(newReview)
     res.locals.user.addReview(newReview)
     res.redirect('back')
-    // console.log(restaurant.reviews) // reviews for all of that restaurant
+
     
 
 })

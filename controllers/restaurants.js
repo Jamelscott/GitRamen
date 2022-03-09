@@ -15,19 +15,17 @@ require('dotenv').config()
 // Get to update page
 router.post('/update', (req, res)=>{
 
-    console.log(req.query)
     const reviewData = req.body
     res.render('restaurants/update.ejs',{reviewData: reviewData} )
 })
 //updating reviews
 router.put('/update', async (req, res)=>{
-
-
-        
+    console.log(req.body)
+    const restId = req.body.restId
+    console.log(restId)
     const newComment = req.body.newComment
     const newRating = req.body.newRating
     const commentId = req.body.commentId
-    console.log(commentId)
 
     const update = await db.review.update({
         comment: newComment,
@@ -36,7 +34,7 @@ router.put('/update', async (req, res)=>{
         where: {id: commentId}
     })
 
-    res.redirect('/restaurants/')
+    res.redirect(`/restaurants/${restId}`)
 
 })
 
@@ -73,14 +71,15 @@ router.get('/:id', (req, res)=>{
                     include: db.user
                 }
             })
-            // console.log(restaurantAndReviews.reviews)
+            const restaurantIdentifier = req.params.id
+            console.log(restaurantIdentifier)
    
 
             // console.log(findUser)
             if(restaurantAndReviews === null){
-                res.render('restaurants/show.ejs', {restaurant:currentRestaurant, reviews: null, userData: res.locals.user})
+                res.render('restaurants/show.ejs', {restaurant:currentRestaurant, restId: restaurantIdentifier, reviews: null, userData: res.locals.user})
             } else {
-                res.render('restaurants/show.ejs', {restaurant:currentRestaurant, reviews: restaurantAndReviews.reviews, userData: res.locals.user})
+                res.render('restaurants/show.ejs', {restaurant:currentRestaurant, restId: restaurantIdentifier, reviews: restaurantAndReviews.reviews, userData: res.locals.user})
             }
 
 

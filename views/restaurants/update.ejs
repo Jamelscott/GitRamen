@@ -4,15 +4,17 @@
     <div class="reviewSubmitBox" style="text-align:center">
         <div> 
             <label for="comment">New Review:</label>
-            <div style="text-align:center">
+            <div style="text-align:center">-
                 <textarea required class="reviewUpdateInput" type="text" name="newComment" ><%=reviewData.comment%></textarea>
             </div>
         </div>
         <div>
             <label for="rating">New Rating:</label><br>
             <div>
+                <%console.log(reviewData)%>
                 <input required class="ratingInput" type="number" min="1" max="5" name="newRating"value="<%=reviewData.rating%>">
                 <input hidden type="text" name="commentId"value="<%=reviewData.id%>">
+                <input hidden type="text" name="restId"value="<%=reviewData.restId%>">
             </div>
         </div>
     </div>

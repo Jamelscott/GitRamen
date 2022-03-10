@@ -9,7 +9,7 @@ Our hopes for this web app is to develop a web-home for Ramen lovers and provide
 * Clone down this repo via HTTPS or SSH
 * install the required npm modules
 ```
-npm install 
+npm install || npm i
 ```
 * create a database called gitramen. SQL/Postgres uses, see below..
 ```

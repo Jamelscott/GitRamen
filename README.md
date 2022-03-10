@@ -7,9 +7,9 @@ Our hopes for this web app is to develop a web-home for Ramen lovers and provide
 ## Installation Instructions
 
 * Clone down this repo via HTTPS or SSH
-* copy/paste to install the necessary npm modules
+* install the required npm modules
 ```
-npm i axios bcrypt cookie-parser crypto-js dotenv ejs express express-ejs-layouts mapbox-gl method-override pg sequelize sequelize-cli 
+npm install 
 ```
 * create a database called gitramen. SQL/Postgres uses, see below..
 ```

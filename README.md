@@ -1,5 +1,6 @@
 # GitRamen-Vancouver
 
+[Here is the deploy link](https://git-ramen.herokuapp.com/)
 
 GitRamenVancouver is an exclusive webapp for ramen connoisseurs that allows logged-in users to rate and review the top ramen restaurants in the greater Vancouver area. Our site offers detailed information regarding the top rated ramen restaurants in the city as well as the opportunity for users to post their opiniona and give a personally rating for each restaurant. Our site offers an average rating of all reviews which in turn provides users will top notch recommendations.
 Our hopes for this web app is to develop a web-home for Ramen lovers and provide a reliable resource for those looking to determine where to find the best ramen in the city.Log-in to gets started.
@@ -7,8 +8,7 @@ Our hopes for this web app is to develop a web-home for Ramen lovers and provide
 ## Flowers
 A special thanks to FreePik @ modern icons for allowing me to us thier Ramen-bowl artwork.
 
-## Deploy
-[Here is the deploy link](https://git-ramen.herokuapp.com/)
+## Landing page
 ![screenshot](./planning/gitramen-signin.PNG)
 
 ## Installation Instructions
@@ -105,7 +105,7 @@ I chose to use [Figma](https://www.figma.com/) to create my wireframes. Please s
 
 [Click here to see my flow chart on figma](https://www.figma.com/file/LrwZ9c6aqCjKA996gKSi7b/jamel?node-id=0%3A1)
 
-### screenshots from figma
+### Wireframe screenshots from Figma
 
 
 

@@ -6,7 +6,7 @@ GitRamenVancouver is an exclusive webapp for ramen connoisseurs that allows logg
 Our hopes for this web app is to develop a web-home for Ramen lovers and provide a reliable resource for those looking to determine where to find the best ramen in the city.Log-in to gets started.
 
 ## Flowers
-A special thanks to FreePik @ modern icons for allowing me to us thier Ramen-bowl artwork.
+A special thanks to FreePik at modern icons for allowing me to us thier Ramen-bowl artwork.
 
 ## Landing page
 ![screenshot](./planning/gitramen-signin.PNG)

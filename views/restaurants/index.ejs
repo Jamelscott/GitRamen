@@ -1,5 +1,11 @@
+<form action="" method="GET">
+  <label>Choose a new city:</label>
+  <input type="text">
+  <input type="submit" name="" id="">
+</form>
 <h1 class="center margin10" style="color: black; font-weight: 900">
-  Vancouver's Top Ramen
+  <%let cityname = city %>
+  <%=cityname.charAt(0).toUpperCase() + cityname.slice(1)%>'s Top Ramen
 </h1>
 <h5 style="text-align:center;">These restaurants are chosen from Yelp's highest rated ramen restaurants in the city.</h5>
 <h6 style="text-align:center;margin-bottom:10px">Click to share your experience.</h6>

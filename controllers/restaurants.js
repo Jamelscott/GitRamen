@@ -18,6 +18,14 @@ router.post('/update', (req, res)=>{
     const reviewData = req.body
     res.render('restaurants/update.ejs',{reviewData: reviewData} )
 })
+
+// POST a new city
+router.post('/', (req, res)=>{
+
+    const reviewData = req.body
+    res.render('restaurants/update.ejs',{reviewData: reviewData} )
+})
+
 //updating reviews
 router.put('/update', async (req, res)=>{
     const restId = req.body.restId
@@ -38,14 +46,16 @@ router.put('/update', async (req, res)=>{
 
 // Route to Restaurant Index page
 router.get('/', (req, res)=>{
-    const url = `https://api.yelp.com/v3/businesses/search?location=vancouver&categories=ramen`
+    let city = 'vancouver'
+    const url = `https://api.yelp.com/v3/businesses/search?location=${city}&categories=ramen`
     const header = {headers: {Authorization: 'Bearer ' + process.env.YELP_ACCESS}}
     axios.get(url, header)
     .then(function (response) {
         // handle success
         let restaurants = response.data.businesses
+        let currentCity = city
 
-        res.render('restaurants', {restaurant: restaurants})
+        res.render('restaurants', {restaurant: restaurants, city: currentCity})
         // res.send(restaurants)
     })
 })

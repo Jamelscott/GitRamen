@@ -18,9 +18,7 @@ router.post("/update", (req, res) => {
 });
 //updating reviews
 router.put("/update", async (req, res) => {
-  console.log(req.body);
   const restId = req.body.restId;
-  console.log(restId);
   const newComment = req.body.newComment;
   const newRating = req.body.newRating;
   const commentId = req.body.commentId;

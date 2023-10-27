@@ -205,3 +205,23 @@ h5:link{color: black;}
     font-size: 1.8em !important;
     font-weight: 800;
     }
+
+.demoContainer {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    background-color: #F1CA67;
+    border: 1px solid black;
+    width: 300px;
+    border-radius: 20px;
+    padding: 10px;
+}
+.demoHeader {
+    font-size: 20px;
+    font-weight:800;
+}
+.demoText {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
